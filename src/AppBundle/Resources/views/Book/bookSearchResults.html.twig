@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block searchResults %}
+    {{ dump(app.user) }}
+    {% for item in items %}
+        {% include '@App/Book/bookPreview.html.twig' with {'item': item} %}
+    {% else %}
+        <p class="alert alert-danger">no book was found</p>
+    {% endfor %}
+{% endblock %}
