@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {{ dump(book) }}
+
+    {% if app.user %}
+        {{ render(controller('AppBundle:Book:bookUserInformation',{ 'book': book } )) }}
+
+        {{ form_start(reviewForm, {'attr': {'class': 'form-horizontal'}}) }}
+            {{ form_errors(reviewForm) }}
+            {{ form_row(reviewForm.comment) }}
+            <button class="btn btn-info" type="submit">
+                {% if status %} Update comment {% else %} Comment {% endif %}
+            </button>
+        {{ form_end(reviewForm) }}
+        {% else %}
+
+    {% endif %}
+    <button class="btn btn-dark "> {{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':book.apiId  })) }}</button>
+    {{ render(controller('AppBundle:Review:bookReviewsList',{ 'id': book.id })) }}
+{% endblock %}

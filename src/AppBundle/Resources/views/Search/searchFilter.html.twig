@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h1>Book search</h1>
-            {{ form_start(searchFilterForm , {'action': path('book_search_filter')}) }}
+            {{ form_start(searchFilterForm , {'attr' : { 'class': 'form-inline' } , 'action': path('book_search_filter')}) }}
                 {{ form_widget(searchFilterForm) }}
                 <button type="submit" class="btn btn-primary">Search</button>
             {{ form_end(searchFilterForm) }}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+{% if libraryBooks %}
+    <table class="table">
+        <thead>
+            <th>#</th>
+            <th>title</th>
+            <th>views</th>
+            <th>pages</th>
+            <th>year</th>
+            <th>category</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </thead>
+        {% for libraryBook in libraryBooks %}
+        <tr>
+            <td><img class="img-responsive" src="{{ libraryBook.book.thumbnail }}" alt=""></td>
+            <td>{{ libraryBook.book.titre }}</td>
+            <td>{{ libraryBook.book.viewsCount }}</td>
+            <td>{{ libraryBook.book.pageCount }}</td>
+            <td>{{ libraryBook.book.anneePublication | date('d M Y') }}</td>
+            <td>{{ libraryBook.book.category }}</td>
+            <td><a class="btn btn-danger " href="">drop</a></td>
+            <td><a class="btn btn-dark " href="">giveaway</a></td>
+            <td><a class="btn btn-success" href="">exchange</a></td>
+            <td><a class="btn btn-primary" href="">sell</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    no book in library
+{% endif %}
+{% endblock %}
+

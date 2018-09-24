@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\Author;
+use AppBundle\Entity\AuthorBook;
 
 /**
  * BookRepository
@@ -10,4 +12,45 @@ namespace AppBundle\Repository;
  */
 class BookRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function simpleSearch($searched)
+    {
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->where('b.isbn LIKE :searched')
+            ->orWhere('b.titre LIKE :searched')
+            ->setParameter('searched', '%'.$searched.'%')
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function authorListOfBooks (Author $author){
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->innerJoin(AuthorBook::class , 'ab', 'WITH', 'b.id = ab.book ')
+            ->where('ab.author = :author')
+            ->setParameter('author',$author)
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function popularCategories ($limit){
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->select('count(b.category) as categoryCount, b.category')
+            ->groupBy('b.category')
+            ->orderBy('categoryCount' , 'DESC')
+            ->setMaxResults( $limit );
+        ;
+
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\User;
+
 
 /**
  * LibraryBookRepository
@@ -10,4 +12,56 @@ namespace AppBundle\Repository;
  */
 class LibraryBookRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function exchangeList(User $user = null)
+    {
+        $qb = $this
+            ->createQueryBuilder('lb')
+            ->where('lb.exchange = true')
+        ;
+        if ($user){
+            $qb->andWhere('lb.user <> :user')
+                ->setParameter('user',$user)
+            ;
+        }
+        $qb->orderBy('lb.dateAjout','ASC');
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function giveawayList(User $user = null)
+    {
+        $qb = $this
+            ->createQueryBuilder('lb')
+            ->where('lb.giveaway = true')
+        ;
+        if ($user){
+            $qb->andWhere('lb.user <> :user')
+                ->setParameter('user',$user)
+            ;
+        }
+        $qb->orderBy('lb.dateAjout','ASC');
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function sellList(User $user = null)
+    {
+        $qb = $this
+            ->createQueryBuilder('lb')
+            ->where('lb.sell = true')
+        ;
+        if ($user){
+            $qb->andWhere('lb.user <> :user')
+                ->setParameter('user',$user)
+            ;
+        }
+        $qb->orderBy('lb.dateAjout','ASC');
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

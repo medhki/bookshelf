@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="library_book")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\LibraryBookRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class LibraryBook
 {
@@ -26,7 +27,7 @@ class LibraryBook
      *
      * @ORM\Column(name="nbrCopies", type="integer")
      */
-    private $nbrCopies;
+    private $nbrCopies=1;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Book")
@@ -40,6 +41,48 @@ class LibraryBook
      */
     private $library;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_ajout", type="datetime")
+     */
+    private $dateAjout;
+
+    /**
+     * @var int
+     * @ORM\Column(name="rating", type="integer" , nullable= true)
+     */
+    private $rating ;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="read_statut", type="boolean" )
+     */
+    private $readStatut = false;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="exchange", type="boolean" )
+     */
+    private $exchange = true;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="sell", type="boolean" )
+     */
+    private $sell = false;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="giveaway", type="boolean" )
+     */
+    private $giveaway = false;
+
+    /**
+     * @var float
+     * @ORM\Column(name="price" , type="float" , nullable=true)
+     */
+    private $price;
 
     /**
      * Get id.
@@ -121,5 +164,145 @@ class LibraryBook
     public function getLibrary()
     {
         return $this->library;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function inLibraryCountPlus(){
+        $this->book->setInLibraryCount($this->book->getInLibraryCount()+1);
+    }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function inLibraryCountMinus(){
+        $this->book->setInLibraryCount($this->book->getInLibraryCount()-1);
+    }
+
+
+
+    /**
+     * Set rating
+     *
+     * @param integer $rating
+     *
+     * @return LibraryBook
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return integer
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+
+
+    /**
+     * Set dateAjout
+     *
+     * @return LibraryBook
+     *
+     * @ORM\PrePersist()
+     */
+    public function setDateAjout()
+    {
+        $this->dateAjout = new \Datetime();;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAjout
+     *
+     * @return \DateTime
+     */
+    public function getDateAjout()
+    {
+        return $this->dateAjout;
+    }
+
+
+
+    /**
+     * Set readStatut
+     *
+     * @param boolean $readStatut
+     *
+     * @return LibraryBook
+     */
+    public function setReadStatut($readStatut)
+    {
+        $this->readStatut = $readStatut;
+
+        return $this;
+    }
+
+    /**
+     * Get readStatut
+     *
+     * @return boolean
+     */
+    public function getReadStatut()
+    {
+        return $this->readStatut;
+    }
+
+    /**
+     * Set exchange
+     *
+     * @param boolean $exchange
+     *
+     * @return LibraryBook
+     */
+    public function setExchange($exchange)
+    {
+        $this->exchange = $exchange;
+
+        return $this;
+    }
+
+    /**
+     * Get exchange
+     *
+     * @return boolean
+     */
+    public function getExchange()
+    {
+        return $this->exchange;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     *
+     * @return LibraryBook
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

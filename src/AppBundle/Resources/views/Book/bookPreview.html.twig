@@ -1,17 +1,102 @@
-<article>
-    {% if item.volumeInfo.imageLinks.thumbnail is defined %}
-    <img src="{{ item.volumeInfo.imageLinks.thumbnail}}"/>
-    {% endif %}
-    <h4>{{ item.volumeInfo.title}}</h4>
-    {% if item.volumeInfo.description is defined %}
-        {{ item.volumeInfo.description }}
-    {% endif %}
-    <br>
-    {% if item.volumeInfo.publishedDate is defined %}
-        <strong> {{ item.volumeInfo.publishedDate }}</strong><br/>
-    {% endif %}
-    <br>
-    {{ item.volumeInfo.authors | join }}
-    <br>
-    <a class="btn btn-info" href="{{ path('add_to_my_library',{'id':item.id}) }}">Ajouter a ma bibliotheque</a>
-</article>
+<div class="example-2 card">
+    <div class="wrapper"
+         style="background: url({% if item.volumeInfo.imageLinks.thumbnail is defined %}{{ item.volumeInfo.imageLinks.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}) center/cover no-repeat;">
+        <div class="header">
+            <div class="date">
+                <span class="day">
+                    {% if item.volumeInfo.publishedDate is defined %}
+                        {{ item.volumeInfo.publishedDate }}
+                    {% endif %}
+                </span>
+            </div>
+            <br>
+            <ul class="menu-content">
+                <li style="font-size: 12px">
+                    {% if item.volumeInfo.categories[0] is defined %}
+                        {{ (item.volumeInfo.categories[0] | join) | length > 25 ? (item.volumeInfo.categories[0] | join) |slice(0, 25) ~ '...' : (item.volumeInfo.categories[0] | join) }}
+                    {% endif %}
+                </li>
+                <li>
+                    {% if item.volumeInfo.averageRating is defined %}
+                        <a href="#" class="fa fa-star">
+                            <span>
+                                {{ item.volumeInfo.averageRating }}
+                            </span>
+                        </a>
+                    {% endif %}
+                </li>
+                <li>
+                    <a href="#" class="fa fa-language">
+                        <span>
+                            {% if item.volumeInfo.language is defined %}
+                                {{ item.volumeInfo.language }}
+                            {% endif %}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <div class="content">
+                        <span class="author">
+                            {% if item.volumeInfo.authors is defined %}
+                                {{ item.volumeInfo.authors | join(' | ') }}
+                            {% endif %}
+                        </span>
+                <h5 class="title">
+                    <a href="#">
+                        {{ item.volumeInfo.title }}
+                    </a>
+                </h5>
+                <p class="text">
+                    <br>
+                    {% if item.searchInfo.textSnippet is defined %}
+                        {{ (item.searchInfo.textSnippet |length > 50 ? item.searchInfo.textSnippet|slice(0, 50) ~ '...' : item.searchInfo.textSnippet)   | raw }}
+                    {% endif %}
+                </p>
+                {{ render(controller('AppBundle:library:bookInLibrarayChecker', { 'apiId':item.id  })) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{#<article class="material-card Red">#}
+    {#<h2 >#}
+        {#<strong style="font-size: 15px">#}
+            {#<i class="fa fa-fw fa-star"></i>#}
+            {#{% if item.volumeInfo.authors is defined %}#}
+                {#{{ item.volumeInfo.authors | join(' | ') }}#}
+            {#{% endif %}#}
+        {#</strong>#}
+        {#<span style="font-size: 17px">{{ item.volumeInfo.title }}</span>#}
+    {#</h2>#}
+    {#<div class="mc-content">#}
+        {#<div class="img-container">#}
+            {#<img class="img-responsive" style="width: 100%; " src="{% if item.volumeInfo.imageLinks.thumbnail is defined %}{{ item.volumeInfo.imageLinks.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}">#}
+        {#</div>#}
+        {#<div class="mc-description">#}
+            {#{% if item.searchInfo.textSnippet is defined %}#}
+                {#{{ item.searchInfo.textSnippet    | raw }}#}
+            {#{% endif %}#}
+        {#</div>#}
+    {#</div>#}
+    {#<a class="mc-btn-action">#}
+        {#<i class="fa fa-bars"></i>#}
+    {#</a>#}
+    {#<div class="mc-footer">#}
+        {#<h4>#}
+            {#info#}
+        {#</h4>#}
+        {#<a class="fa fa-fw fa-facebook"></a>#}
+        {#<a class="fa fa-fw fa-twitter"></a>#}
+        {#<a class="fa fa-fw fa-linkedin"></a>#}
+        {#<a class="fa fa-fw fa-google-plus"></a>#}
+    {#</div>#}
+
+    {#{% if item.volumeInfo.publishedDate is defined %}#}
+        {#{{ item.volumeInfo.publishedDate }}#}
+    {#{% endif %}#}
+
+    {#<a class="btn btn-info" href="{{ path('add_to_my_library',{'apiId':item.id}) }}">Ajouter a ma bibliotheque</a>#}
+{#</article>#}

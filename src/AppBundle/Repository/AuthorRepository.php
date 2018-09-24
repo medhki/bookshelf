@@ -10,4 +10,16 @@ namespace AppBundle\Repository;
  */
 class AuthorRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function simpleSearch($searched)
+    {
+        $qb = $this
+            ->createQueryBuilder('a')
+            ->where('a.nom LIKE :searched')
+            ->setParameter('searched', '%'.$searched.'%')
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

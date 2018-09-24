@@ -1,0 +1,9 @@
+{% for review in reviews %}
+    <div>
+    added the {{ review.createdAt |date('d  M  Y') }} at {{ review.createdAt |date('H:i:s') }} by {{ review.user.username }}
+    <br>
+    {{ review.comment }}
+{% else %}
+    no  reviews
+    </div>
+{% endfor %}

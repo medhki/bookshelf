@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\Author;
 
 /**
  * AuthorBookRepository
@@ -10,4 +11,22 @@ namespace AppBundle\Repository;
  */
 class AuthorBookRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function simpleSearch($searched)
+    {
+        $qb = $this
+            ->createQueryBuilder('ab')
+            ->join('ab.author', 'a')
+            ->join('ab.book', 'b')
+            ->where('b.titre LIKE :searched')
+            ->orWhere('b.isbn LIKE :searched')
+            ->orWhere('a.nom LIKE :searched')
+            ->setParameter('searched', '%'.$searched.'%')
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
 }

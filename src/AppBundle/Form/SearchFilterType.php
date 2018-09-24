@@ -15,16 +15,32 @@ class SearchFilterType extends AbstractType
         $builder
             ->setMethod('POST')
             ->add('intitle',\Symfony\Component\Form\Extension\Core\Type\TextType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Title',
+                ),
                 'required' => false,
-                'label' => 'Titre'
+                'label' => false
             ))
             ->add('inauthor', \Symfony\Component\Form\Extension\Core\Type\TextType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Author',
+                ),
                 'required' => false,
-                'label' => 'Auteur'
+                'label' => false
             ))
             ->add('inpublisher', \Symfony\Component\Form\Extension\Core\Type\TextType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Publisher',
+                ),
                 'required' => false,
-                'label' => 'Editeur'
+                'label' => false
+            ))
+            ->add('isbn', \Symfony\Component\Form\Extension\Core\Type\TextType::class,array(
+                'attr' => array(
+                    'placeholder' => 'ISBN',
+                ),
+                'required' => false,
+                'label' => false
             ))
         ;
     }

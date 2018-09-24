@@ -20,6 +20,12 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var bool
+     * @ORM\Column(name="deleted", name="deleted", type="boolean" , nullable=true)
+     */
+    private $deleted = false;
+
+    /**
      * @var
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Library", cascade={"persist" , "remove"})
      */
@@ -84,5 +90,29 @@ class User extends BaseUser
     public function getAdresse()
     {
         return $this->adresse;
+    }
+
+    /**
+     * Set deleted
+     *
+     * @param boolean $deleted
+     *
+     * @return User
+     */
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Get deleted
+     *
+     * @return boolean
+     */
+    public function getDeleted()
+    {
+        return $this->deleted;
     }
 }

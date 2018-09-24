@@ -1,0 +1,5 @@
+{% if book is not null %}
+    <a href="{{ path('book_show',{'id':book.id}) }}" class="button" style="color: tomato;"> already in my Library</a>
+{% else %}
+    <a href="{{ path('add_to_my_library',{'apiId':apiId}) }}" class="button">Add to my library</a>
+{% endif %}

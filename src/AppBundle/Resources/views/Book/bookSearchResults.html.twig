@@ -1,9 +1,29 @@
 {% extends 'base.html.twig' %}
-{% block searchResults %}
-    {{ dump(app.user) }}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
+
+{% endblock %}
+{% block filter %}
+    {{ form_start(searchFilterForm , {'attr' : { 'class': 'form-inline' } , 'action': path('book_search_filter')}) }}
+        {{ form_row(searchFilterForm.intitle) }}
+        {{ form_row(searchFilterForm.inauthor) }}
+        {{ form_row(searchFilterForm.inpublisher) }}
+        {{ form_row(searchFilterForm.isbn) }}
+        <button type="submit" class="btn btn-primary">Search</button>
+    {{ form_end(searchFilterForm) }}
+{% endblock %}
+{% block content %}
+
+    <div class="row active-with-click">
     {% for item in items %}
-        {% include '@App/Book/bookPreview.html.twig' with {'item': item} %}
-    {% else %}
-        <p class="alert alert-danger">no book was found</p>
+        <div class="col-md-4 col-sm-6 col-xs-12 my-3 rounded"> {% include '@App/Book/bookPreview.html.twig' with {'item': item} %}</div>
     {% endfor %}
+    </div>
+
+{% endblock %}
+{% block scripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/searchedResults.js') }}"></script>
 {% endblock %}

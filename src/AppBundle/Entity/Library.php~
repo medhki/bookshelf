@@ -69,4 +69,28 @@ class Library
     {
         return $this->adresse;
     }
+
+    /**
+     * Set designation
+     *
+     * @param string $designation
+     *
+     * @return Library
+     */
+    public function setDesignation($designation)
+    {
+        $this->designation = $designation;
+
+        return $this;
+    }
+
+    /**
+     * Get designation
+     *
+     * @return string
+     */
+    public function getDesignation()
+    {
+        return $this->designation;
+    }
 }
