@@ -86,10 +86,10 @@ h1 {
   z-index: 1;
 }
 .card .author {
-  font-size: 12px;
+  font-size: 10px;
 }
 .card .title {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .card .text {
   height: 70px;

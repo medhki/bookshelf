@@ -1,0 +1,54 @@
+<div class="example-2 card">
+    <div class="wrapper"
+         style="background: url({% if book.thumbnail is defined %}{{ book.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}) center/cover no-repeat;">
+        <div class="header">
+            <div class="date">
+                <span class="day">
+                    {% if book.anneePublication is defined %}
+                        {{ book.anneePublication | date('d M Y') }}
+                    {% endif %}
+                </span>
+            </div>
+            <ul class="menu-content">
+                <li style="font-size: 12px">
+                    {% if book.category is defined %}
+                        {{ (book.category | join) | length > 25 ? (book.category | join) |slice(0, 25) ~ '...' : (book.category | join) }}
+                    {% endif %}
+                </li>
+                <li>
+                    {% if book.averageRating is defined %}
+                        <a href="#" class="fa fa-star">
+                            <span>
+                                {{ book.averageRating }}
+                            </span>
+                        </a>
+                    {% endif %}
+                </li>
+                <li>
+                    <a href="#" class="fa fa-language">
+                        <span>
+                            {% if book.language is defined %}
+                                {{ book.language }}
+                            {% endif %}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <div class="content">
+                        <span class="author" style="font-size: 12px;">
+                            {{ render(controller('AppBundle:Book:bookAuthorsList',{ 'book': book.id })) }}
+                        </span>
+                <h5 class="title" style="font-size: 15px;">
+                    <a href="#">
+                        {{ book.titre }}
+                    </a>
+                </h5>
+                {% if app.user %}
+                    {{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':book.apiId  })) }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

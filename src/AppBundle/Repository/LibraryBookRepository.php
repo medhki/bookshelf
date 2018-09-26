@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\Book;
 use AppBundle\Entity\User;
 
 
@@ -58,6 +59,44 @@ class LibraryBookRepository extends \Doctrine\ORM\EntityRepository
             ;
         }
         $qb->orderBy('lb.dateAjout','ASC');
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function bookSellList(Book $book){
+        $qb = $this
+            ->createQueryBuilder('lb')
+            ->where('lb.book = :book')
+            ->andWhere('lb.sell = true')
+            ->setParameter('book', $book->getId())
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function bookEchangeList(Book $book){
+        $qb = $this
+            ->createQueryBuilder('lb')
+            ->where('lb.book = :book')
+            ->andWhere('lb.exchange = true')
+            ->setParameter('book', $book->getId())
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function bookGiveawayList(Book $book){
+        $qb = $this
+            ->createQueryBuilder('lb')
+            ->where('lb.book = :book')
+            ->andWhere('lb.giveaway = true')
+            ->setParameter('book', $book->getId())
+        ;
         return $qb
             ->getQuery()
             ->getResult()

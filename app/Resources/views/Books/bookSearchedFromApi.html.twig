@@ -1,0 +1,61 @@
+<div class="example-2 card">
+    <div class="wrapper"
+         style="background: url({% if item.volumeInfo.imageLinks.thumbnail is defined %}{{ item.volumeInfo.imageLinks.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}) center/cover no-repeat;">
+        <div class="header">
+            <div class="date">
+                <span class="day">
+                    {% if item.volumeInfo.publishedDate is defined %}
+                        {{ item.volumeInfo.publishedDate }}
+                    {% endif %}
+                </span>
+            </div>
+            <br>
+            <ul class="menu-content">
+                <li style="font-size: 12px">
+                    {% if item.volumeInfo.categories[0] is defined %}
+                        {{ (item.volumeInfo.categories[0] | join) | length > 25 ? (item.volumeInfo.categories[0] | join) |slice(0, 25) ~ '...' : (item.volumeInfo.categories[0] | join) }}
+                    {% endif %}
+                </li>
+                <li>
+                    {% if item.volumeInfo.averageRating is defined %}
+                        <a href="#" class="fa fa-star">
+                            <span>
+                                {{ item.volumeInfo.averageRating }}
+                            </span>
+                        </a>
+                    {% endif %}
+                </li>
+                <li>
+                    <a href="#" class="fa fa-language">
+                        <span>
+                            {% if item.volumeInfo.language is defined %}
+                                {{ item.volumeInfo.language }}
+                            {% endif %}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <div class="content">
+                        <span class="author" style="font-size: 12px">
+                            {% if item.volumeInfo.authors is defined %}
+                                {{ item.volumeInfo.authors | join(' | ') }}
+                            {% endif %}
+                        </span>
+                <h5 class="title">
+                    <a href="#">
+                        {{ item.volumeInfo.title }}
+                    </a>
+                </h5>
+                <p class="text">
+                    <br>
+                    {% if item.searchInfo.textSnippet is defined %}
+                        {{ (item.searchInfo.textSnippet |length > 50 ? item.searchInfo.textSnippet|slice(0, 50) ~ '...' : item.searchInfo.textSnippet)   | raw }}
+                    {% endif %}
+                </p>
+                {{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':item.id  })) }}
+            </div>
+        </div>
+    </div>
+</div>

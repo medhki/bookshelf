@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row py-3" style="border: 0.5px solid grey; border-radius: 5px">
+            <div class="col-md-4 flex-column">
+                <div class="mx-auto mb-2">
+                    {% if book.thumbnail %}
+                        <img width="90%" src="{{ book.thumbnail }}" alt="{{ book.titre }}">
+                    {% else %}
+                        <img class="img-fluid" height="150px" src="{{ asset('images/unnamed.png') }}" alt="{{ book.titre }}">
+                    {% endif %}
+                </div>
+                <div>
+                {% if book.category %}
+                    category : {{ book.category }}
+                {% endif %}
+                </div>
+                <div>
+                {% if book.pageCount %}
+                    {{ book.pageCount }} pages
+                {% endif %}
+                </div>
+                {% if book.rating and (book.rating > 1) %}
+                    <div class="mx-auto"> Average Rating</div>
+                    <div>
+                        {{ book.rating | round(2) }}{% for i in 1..(book.rating | round) %}<i class="fa fa-star"></i>{% endfor %} ({{ book.ratingCount }} Ratings)
+                    </div>
+                {% endif %}
+                {% if app.user %}
+                    <button class="btn btn-dark my-3 "> {{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':book.apiId  })) }}</button>
+                {% endif %}
+        </div>
+            <div class="px-2 col-md-8 flex-column">
+                <h3 class="font-weight-bold" style="line-height: normal">{{ book.titre }}</h3>
+                <h5 class="font-weight-bold text-secondary"> by {{ render(controller('AppBundle:Book:bookAuthorsList',{ 'book': book.id })) }} </h5>
+                <h6> <small>published in {{ book.anneePublication | date('d M Y') }}</small></h6>
+                <h5 class="text-justified"><small>{{ book.description | raw }}</small></h5>
+                <div class="row mt-4">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': book.id })) }}</div>
+
+            </div>
+        </div>
+        <div class="row py-3">
+            {% if app.user %}
+                {{ render(controller('AppBundle:Book:bookUserInformation',{ 'book': book } )) }}
+            {% endif %}
+        </div>
+        <div class="row">
+        {% if app.user %}
+            {{ form_start(reviewForm, {'attr': {'class': 'form-horizontal col-12'}}) }}
+                {{ form_errors(reviewForm) }}
+                {{ form_row(reviewForm.comment, {'attr': {'class': 'col-12'}})}}
+                <button class="btn btn-info col-3" type="submit">
+                    {% if status %} Update comment {% else %} Comment {% endif %}
+                </button>
+            {{ form_end(reviewForm) }}
+        {% endif %}
+        </div>
+        <div class="row">
+        {{ render(controller('AppBundle:Review:bookReviewsList',{ 'id': book.id })) }}
+        </div>
+
+    </div>
+{% endblock %}

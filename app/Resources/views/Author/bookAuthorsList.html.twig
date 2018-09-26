@@ -1,0 +1,5 @@
+{% if authors  %}
+    {% for author in authors %}
+        <a href="{{ path('author_profile' ,{'id':author.id}) }}">{{ author.nom }} , </a>
+    {% endfor %}
+{% endif %}

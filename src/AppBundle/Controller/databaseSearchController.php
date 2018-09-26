@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Book;
+use AppBundle\Form\SearchFilterType;
 use AppBundle\Service\DatabaseBookSearch;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,19 +25,33 @@ class databaseSearchController extends Controller
     /**
      * @Route("/owned/{searched}")
      */
-    public function searchInDatabaseAction($searched ,Request $request)
+    public function advancedSearchInDatabaseAction(Request $request)
     {
-        $results = $this->databaseFilter->simpleSearchDatabase($searched);
+        $form = $this->createForm(SearchFilterType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $results = $this->databaseFilter->simpleSearchDatabase();
+        }
+        dump($results);die;
+        // rendering results
+    }
+
+    public function simpleSearchInDatabaseAction(Request $request)
+    {
+        $form = $this->createForm(SearchFilterType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $results = $this->databaseFilter->simpleSearchDatabase();
+        }
         dump($results);die;
         // rendering results
     }
 
 
-    public function popularCategoriesAction()
-    {
-        $repo = $this->getDoctrine()->getManager()->getRepository(Book::class);
-        $poplarCategories = $repo->popularCategories(3);
-        // rendering results
-    }
+
 
 }

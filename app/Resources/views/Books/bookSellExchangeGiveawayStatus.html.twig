@@ -1,0 +1,10 @@
+<a href="#" class="col-md-3 btn btn-dark" data-toggle="tooltip" data-placement="right" title="{{ book.inLibraryCount }} person(s) own this book">{{ book.inLibraryCount }}</a>
+{% if exchangeCount != 0 %}
+    <a href="#" class="col-md-3 btn btn-success" data-toggle="tooltip" data-placement="right" title="{{ exchangeCount }} book(s) for exchange">{{ exchangeCount }}</a>
+{% endif %}
+{% if sellCount !=0 %}
+    <a href="#" class="col-md-3 btn btn-danger" data-toggle="tooltip" data-placement="right" title="{{ sellCount }} book(s) for purchase">{{ sellCount }}</a>
+{% endif %}
+{% if giveawayCount !=0 %}
+    <a href="#" class="col-md-3 btn btn-warning" data-toggle="tooltip" data-placement="right" title="{{ giveawayCount }} book(s) to giveaway">{{ giveawayCount }}</a>
+{% endif %}

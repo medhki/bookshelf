@@ -23,10 +23,9 @@ class ReviewController extends Controller
      * @Route(name="book_reviews_list")
      */
     public function bookReviewsListAction(Book $book, Request $request){
-        $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository(Review::class);
-        $reviews = $repository->bookReviewsList($book , $user);
+        $reviews = $repository->bookReviewsList($book );
         return $this->render('@App/Review/reviewsList.html.twig', array(
             'reviews' => $reviews
         ));

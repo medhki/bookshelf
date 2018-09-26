@@ -30,29 +30,29 @@ class LibraryController extends Controller
 
 
 
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/search" , name="book_search_filter")
-     */
-    public function apiSearchBookAction(Request $request)
-    {
-        $form = $this->createForm(SearchFilterType::class);
-        $form->handleRequest($request);
-        $items=[];
-        if ($form->isSubmitted() && $form->isValid()) {
-            // the GoogleBooksSearcher generates the results from the google books api as an array
-            $items = $this->booksSearcher->apiSearchResult($form->getData());
-            if (!$items) {
-                $this->addFlash('error', 'pas de resultat');
-            }
-        }
-        return $this->render('@App/Book/bookSearchResults.html.twig', array(
-            'items' => $items,
-            'searchFilterForm' => $form->createView()
-        ));
-
-    }
+//    /**
+//     * @param Request $request
+//     * @return \Symfony\Component\HttpFoundation\Response
+//     * @Route("/library/search" , name="book_api_search")
+//     */
+//    public function apiSearchBookAction(Request $request)
+//    {
+//        $form = $this->createForm(SearchFilterType::class);
+//        $form->handleRequest($request);
+//        $items=[];
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            // the GoogleBooksSearcher generates the results from the google books api as an array
+//            $items = $this->booksSearcher->apiSearchResult($form->getData());
+//            if (!$items) {
+//                $this->addFlash('error', 'pas de resultat');
+//            }
+//        }
+//        return $this->render('@App/Book/bookSearchResults.html.twig', array(
+//            'items' => $items,
+//            'searchFilterForm' => $form->createView()
+//        ));
+//
+//    }
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -63,7 +63,7 @@ class LibraryController extends Controller
         $result = $this->libraryConstructor->addBookToLibrary($apiId);
         if ($result ===0) {
             $this->addFlash('error', 'Id GoogleBooksApi errone');
-            return $this->redirectToRoute('book_search_filter');
+            return $this->redirectToRoute('library_constructor');
         }elseif ($result ===2) {
             $this->addFlash('success', 'le livre existe deja dans votre bibliotheque');
         }else {
@@ -87,27 +87,27 @@ class LibraryController extends Controller
         ));
     }
 
-    /**
-     * @Route("/library/{id}" , defaults={"id" = "0"})
-     */
-    public function userLibraryBooksAction($id){
-        if ($id == 0){
-            $user = $this->getUser();
-        }else{
-            $repository = $this->getDoctrine()->getManager()->getRepository(User::class);
-            $user = $repository->find($id);
-        }
-        if ($user != null){
-            $userLibrary = $user->getLibrary();
-            $repository = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
-            $libraryBooks= $repository->findBy(array('library' => $userLibrary));
-        }else{
-            $libraryBooks = [];
-        }
-        return $this->render('@App/Book/libraryBooks.html.twig', array(
-            'libraryBooks' => $libraryBooks
-        ));
-    }
+//    /**
+//     * @Route("/library/{id}" , defaults={"id" = "0"})
+//     */
+//    public function userLibraryBooksAction($id){
+//        if ($id == 0){
+//            $user = $this->getUser();
+//        }else{
+//            $repository = $this->getDoctrine()->getManager()->getRepository(User::class);
+//            $user = $repository->find($id);
+//        }
+//        if ($user != null){
+//            $userLibrary = $user->getLibrary();
+//            $repository = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
+//            $libraryBooks= $repository->findBy(array('library' => $userLibrary));
+//        }else{
+//            $libraryBooks = [];
+//        }
+//        return $this->render('@App/Book/libraryBooks.html.twig', array(
+//            'libraryBooks' => $libraryBooks
+//        ));
+//    }
     /**
      * @param $apiId
      * @Route(name="check_book_in_library")

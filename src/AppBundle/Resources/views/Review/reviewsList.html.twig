@@ -1,9 +1,35 @@
 {% for review in reviews %}
-    <div>
-    added the {{ review.createdAt |date('d  M  Y') }} at {{ review.createdAt |date('H:i:s') }} by {{ review.user.username }}
-    <br>
-    {{ review.comment }}
+    <div class="card card-inner row" style="margin-left: 4rem;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+                    <p class="text-secondary text-center">{{ review.createdAt |date('d  M  Y') }} at {{ review.createdAt |date('H:i:s') }}</p>
+                </div>
+                <div class="col-md-10">
+                    <p><a href="">
+                            <strong>{% if review.user == app.user %} Me {% else %}{{ review.user.username }}{% endif %}</strong></a>
+                    </p>
+                    <p>{{ review.comment }}</p>
+                    <p>
+                        <a class="float-right btn btn-outline-primary ml-2">  <i class="fa fa-reply"></i> Reply</a>
+                        <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% else %}
-    no  reviews
+    <div class="card card-inner row" style="margin-left: 4rem;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+                    <p> be the first to write a review</p>
+                </div>
+            </div>
+        </div>
     </div>
 {% endfor %}
+

@@ -47,10 +47,33 @@ class BookRepository extends \Doctrine\ORM\EntityRepository
             ->orderBy('categoryCount' , 'DESC')
             ->setMaxResults( $limit );
         ;
-
         return $qb
             ->getQuery()
             ->getResult()
             ;
     }
+    public function popularBooks ($limit){
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->orderBy('b.viewsCount' , 'DESC')
+            ->setMaxResults( $limit );
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function listCategories (){
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->select('count(b.category) as categoryCount, b.category')
+            ->groupBy('b.category')
+            ->orderBy('categoryCount' , 'DESC')
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

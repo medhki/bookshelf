@@ -25,7 +25,7 @@ class ReviewRepository extends \Doctrine\ORM\EntityRepository
 //    }
 
 
-    public function bookReviewsList(Book $book , User $user = null)
+    public function bookReviewsList(Book $book )
     {
 
         $qb = $this
@@ -34,11 +34,18 @@ class ReviewRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('book',$book)
 
         ;
-        if ($user){
-            $qb->andWhere('r.user <> :user')
-                ->setParameter('user',$user)
+        $qb->orderBy('r.createdAt','DESC');
+        return $qb
+            ->getQuery()
+            ->getResult()
             ;
-        }
+    }
+    public function latestReviews($limit){
+        $qb = $this
+            ->createQueryBuilder('r')
+            ->orderBy('r.createdAt', 'DESC')
+            ->setMaxResults($limit)
+        ;
         $qb->orderBy('r.createdAt','DESC');
         return $qb
             ->getQuery()

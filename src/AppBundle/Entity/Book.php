@@ -46,7 +46,7 @@ class Book
     /**
      * @var int
      *
-     * @ORM\Column(name="isbn", type="integer", unique=false)
+     * @ORM\Column(name="isbn", type="integer", unique=false, nullable=true)
      */
     private $isbn;
 

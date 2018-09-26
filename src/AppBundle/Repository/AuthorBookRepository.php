@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 use AppBundle\Entity\Author;
+use AppBundle\Entity\Book;
 
 /**
  * AuthorBookRepository
@@ -27,6 +28,20 @@ class AuthorBookRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+
+    public function bookAuthorsList(Book $book){
+        $qb = $this
+            ->createQueryBuilder('ab')
+            ->where('ab.book = :book')
+            ->setParameter('book', $book->getId())
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
 
 
 }

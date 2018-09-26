@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Decouvrir books
+{% endblock %}
+
+
+{% block body %}
+    {% block Searche_Block %}
+        <section class="ftco-section bg-light">
+            <div class="container">
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8 ftco-animate">
+                        <form action="" method="get" class="domain-form">
+                            <div class="form-group d-md-flex">
+                                <input type="text" name="q" class="form-control px-4" placeholder="Entrer le nom de livre ou ISBN...">
+                                <input type="submit" class="search-domain btn btn-primary px-5" value="Recherche">
+                            </div>
+                        </form>
+                    </div>
+                    {{ render(controller('AppBundle:Stats:popularBooks',{ 'limit': 3 })) }}
+                    {{ render(controller('AppBundle:Stats:popularCategories',{ 'limit': 3 })) }}
+                </div>
+
+                <div class="row justify-content-center mb-5 mt-5">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <span class="subheading">Exploiter notre gigantesque biblioteque</span>
+                        <h2 class="mb-4">COMMENCER ET CREER VOTRE COMPTE <strong>GRATUIT</strong> </h2>
+                        <p>Profitez de nos services c'est <strong>gratuit</strong></p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    {% endblock %}
+
+
+    {% block Searche_Result_Block %}
+        {% if searched %}
+            <section class="ftco-section bg-light">
+            <div class="container-fluid">
+
+                <div class="row justify-content-center">
+                    <div class="col-md-12 ftco-animate">
+                        <h1> resultats recherche pour " {{ searched }} "</h1>
+                        <div class="row active-with-click">
+                            {% for book in books %}
+                                <div class="col-md-4 col-sm-6 col-xs-12 my-3">
+                                    {% include ':Books:bookSearchedFromDatabase.html.twig' with {'book' : book} %}
+                                    <div class="row mt-0">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': book.id })) }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        {% endif %}
+    {% endblock %}
+
+
+{% endblock %}

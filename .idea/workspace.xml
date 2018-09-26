@@ -2,49 +2,207 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="977bf1fe-6344-4385-b142-9ef716813491" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BookController.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ReviewController.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/databaseSearchController.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Form/LibraryBooksFilterType.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookDetailed.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookInLibraryChecker.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookList.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/libraryBooks.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/userBookInformation.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Review/reviewsList.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Service/DatabaseBookSearch.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Service/GoodreadsApiSearcher.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Service/GoogleBooksSearcher.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Service/LibraryConstructor.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/searchedResults.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/style2.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/searchedResults.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/BookShelves.iml" afterPath="$PROJECT_DIR$/.idea/BookShelves.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Author/authorProfile.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Author/bookAuthorsList.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Books/bookById.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Books/bookSearchedFromApi.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Books/bookSearchedFromDatabase.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Books/bookSellExchangeGiveawayStatus.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Stats/popularBooks.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Stats/popularCategories.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/accueil.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/constructLibrary.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/decouvrir.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/scrollbook.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/userLibrary.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AuthorController.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/StatsController.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/ajax-loader.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/animate.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/aos.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap-datepicker.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap/bootstrap-grid.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap/bootstrap-reboot.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/css/bootstrap-reboot.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/css/mixins/_text-hide.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/flaticon.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/icomoon.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/ionicons.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/jquery.timepicker.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/magnific-popup.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/mainscroll.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/open-iconic-bootstrap.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/owl.carousel.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/owl.theme.default.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/style.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/stylescroll.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/backup.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/font/Flaticon.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/font/Flaticon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/font/Flaticon.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/font/Flaticon.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/font/_flaticon.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/font/flaticon.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/font/flaticon.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/flaticon/license/license.pdf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/icomoon/icomoon.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/icomoon/icomoon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/icomoon/icomoon.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/icomoon/icomoon.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/ionicons/css/_ionicons.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/ionicons/css/ionicons.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/ionicons/fonts/ionicons.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/ionicons/fonts/ionicons.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/ionicons/fonts/ionicons.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/ionicons/fonts/ionicons.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/ionicons/fonts/ionicons.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/open-iconic/open-iconic.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/open-iconic/open-iconic.otf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/open-iconic/open-iconic.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/open-iconic/open-iconic.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/fonts/open-iconic/open-iconic.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/about.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/bg_1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/dashboard_full_1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/dashboard_full_1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/dashboard_full_2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/dashboard_full_2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/dashboard_full_3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/image_1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/image_2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/image_3.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/image_4.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/image_5.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/image_6.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/img1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/img2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/img3.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/img4.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/loc.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/logo v01.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/logo.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/person_1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/person_2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/person_3.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/images/person_4.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/aos.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/bootstrap-datepicker.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/bootstrap.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/google-map.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/jquery-3.2.1.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/jquery-migrate-3.0.1.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/jquery.animateNumber.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/jquery.easing.1.3.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/jquery.magnific-popup.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/jquery.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/jquery.stellar.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/jquery.waypoints.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/main.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/owl.carousel.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/popper.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/scrollax.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_alert.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_badge.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_breadcrumb.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_button-group.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_buttons.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_card.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_carousel.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_close.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_code.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_custom-forms.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_dropdown.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_forms.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_functions.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_grid.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_images.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_input-group.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_jumbotron.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_list-group.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_media.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_mixins.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_modal.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_nav.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_navbar.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_pagination.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_popover.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_print.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_progress.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_reboot.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_root.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_tables.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_tooltip.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_transitions.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_type.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_utilities.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/_variables.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/bootstrap-grid.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/bootstrap-reboot.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/bootstrap.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_alert.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_background-variant.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_badge.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_border-radius.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_box-shadow.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_breakpoints.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_buttons.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_caret.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_clearfix.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_float.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_forms.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_gradients.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_grid-framework.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_grid.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_hover.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_image.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_list-group.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_lists.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_nav-divider.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_pagination.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_reset-text.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_resize.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_screen-reader.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_size.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_table-row.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_text-emphasis.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_text-hide.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_text-truncate.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_transition.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/mixins/_visibility.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_align.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_background.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_borders.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_clearfix.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_display.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_embed.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_flex.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_float.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_position.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_screenreaders.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_shadows.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_sizing.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_spacing.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_text.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/bootstrap/utilities/_visibility.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/scss/style.scss" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/SearchFilterController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/LibraryController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Author.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Author.php" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BookController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BookController.php" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/LibraryController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/LibraryController.php" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ReviewController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ReviewController.php" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/databaseSearchController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/databaseSearchController.php" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Book.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Book.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Category.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/CategoryBook.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/LibraryBook.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/LibraryBook.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/SearchFilterType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/SearchFilterType.php" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/AuthorBookRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/AuthorBookRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/AuthorRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/AuthorRepository.php" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/BookRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/BookRepository.php" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/LibraryBookRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/LibraryBookRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookPreview.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookPreview.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookSearchResults.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookSearchResults.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/ReviewRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/ReviewRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookDetailed.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookDetailed.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Review/reviewsList.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Review/reviewsList.html.twig" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Search/searchFilter.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Search/searchFilter.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Service/GoogleBooksApiLinkGenerator.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/web/css/style2.css" afterPath="$PROJECT_DIR$/web/css/style2.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,63 +216,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DatabaseBookSearch.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Service/DatabaseBookSearch.php">
+      <file leaf-file-name="decouvrir.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/decouvrir.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BookController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="110" column="7" lean-forward="false" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="7" />
+            <state relative-caret-position="374">
+              <caret line="49" column="53" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
-                <element signature="e#597#2038#0#PHP" expanded="false" />
-                <element signature="e#2045#2139#0#PHP" expanded="false" />
-                <element signature="e#2144#2574#0#PHP" expanded="false" />
-                <element signature="e#2576#2585#0#PHP" expanded="false" />
+                <element signature="e#107#1570#0#Twig" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <file leaf-file-name="reviewsList.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Review/reviewsList.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReviewController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ReviewController.php">
+      <file leaf-file-name="userLibrary.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/userLibrary.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+            <state relative-caret-position="238">
+              <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LibraryController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/LibraryController.php">
+      <file leaf-file-name="constructLibrary.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/constructLibrary.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="37" column="57" lean-forward="false" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
-              <folding>
-                <element signature="e#603#823#0#PHP" expanded="false" />
-                <element signature="e#989#1693#0#PHP" expanded="false" />
-                <element signature="e#1829#2589#0#PHP" expanded="false" />
-                <element signature="e#2640#3029#0#PHP" expanded="false" />
-                <element signature="e#3902#4182#0#PHP" expanded="false" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="12" column="86" lean-forward="false" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bookSearchedFromApi.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/Books/bookSearchedFromApi.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="40" column="67" lean-forward="false" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,62 +299,64 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="med" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/SearchFilterController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Library.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Service/GoogleBooksApiLinkGenerator.php" />
-        <option value="$PROJECT_DIR$/app/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Category.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Review.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Search/searchFilter.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/web/css/searchedResults.css" />
-        <option value="$PROJECT_DIR$/web/css/searchedResults.js" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$USER_HOME$/Desktop/ramcour/Compressed/news-cards-css-only/index.html" />
-        <option value="$PROJECT_DIR$/web/css/style2.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookSearchResults.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Service/GoodreadsApiSearcher.php" />
         <option value="$PROJECT_DIR$/../BookShaala-master/index.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ReviewType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Review/review.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ReviewController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Review/reviewsList.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/SearchFilterType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/userBookInformation.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Repository/ReviewRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookInLibraryChecker.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookPreview.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookDetailed.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/LibraryBook.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookList.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/libraryBooksFilter.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/LibraryBooksFilterType.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/LibraryController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/BookController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Book.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Service/LibraryConstructor.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Author.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Repository/LibraryBookRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/AuthorRepository.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Repository/AuthorBookRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Service/DatabaseBookSearch.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Repository/BookRepository.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/databaseSearchController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Service/GoogleBooksSearcher.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Categories/popularCategories.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/CategoriesController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Stats/popularBooks.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Stats/popularCategories.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Books/bookSearched.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/style2.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/databaseSearchController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/BookRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/AuthorBookRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/LibraryBookRepository.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/decouvrir.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Books/bookSellExchangeGiveawayStatus.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/myLibrary.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/accueil.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/StatsController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookDetailed.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ReviewController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/ReviewRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Review/reviewsList.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Books/bookSearchedFromDatabase.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AuthorController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Author/authorProfile.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Author/bookAuthorsList.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Search/searchFilter.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/BookController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/LibraryController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Book.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Books/bookById.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/userLibrary.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/constructLibrary.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Books/bookSearchedFromApi.html.twig" />
       </list>
     </option>
   </component>
@@ -284,7 +435,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,6 +464,14 @@
             <path>
               <item name="BookShelves" type="b2602c69:ProjectViewProjectNode" />
               <item name="BookShelves" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Books" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BookShelves" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BookShelves" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -324,32 +483,31 @@
             <path>
               <item name="BookShelves" type="b2602c69:ProjectViewProjectNode" />
               <item name="BookShelves" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../aqua_note" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FirstProject" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\BookShelves\src\AppBundle\Form" />
+      <recent name="C:\xampp\htdocs\BookShelves\app\Resources\views\Books" />
+      <recent name="C:\xampp\htdocs\BookShelves\app\Resources\views" />
+      <recent name="C:\xampp\htdocs\BookShelves\app\Resources\views\Stats" />
       <recent name="C:\xampp\htdocs\BookShelves\src\AppBundle\Controller" />
-      <recent name="C:\xampp\htdocs\BookShelves\src\AppBundle\Service" />
-      <recent name="C:\xampp\htdocs\BookShelves\web\css" />
-      <recent name="C:\xampp\htdocs\BookShelves\src\AppBundle\Entity" />
+      <recent name="C:\xampp\htdocs\BookShelves\web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\BookShelves\app\Resources\views\Books" />
       <recent name="C:\xampp\htdocs\BookShelves\web\js" />
       <recent name="C:\xampp\htdocs\BookShelves\web\images" />
     </key>
@@ -393,17 +551,21 @@
       <workItem from="1537689814554" duration="2117000" />
       <workItem from="1537699616337" duration="8802000" />
       <workItem from="1537719844780" duration="21064000" />
-      <workItem from="1537779485309" duration="17877000" />
+      <workItem from="1537779485309" duration="23353000" />
+      <workItem from="1537818133018" duration="8925000" />
+      <workItem from="1537869057724" duration="27441000" />
+      <workItem from="1537905588198" duration="10064000" />
+      <workItem from="1537950806258" duration="218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155929000" />
+    <option name="totallyTimeSpent" value="208053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27836612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20801815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
@@ -422,6 +584,26 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33660132" sideWeight="0.4969743" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20196672" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -434,179 +616,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="35" column="33" lean-forward="false" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Library.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/searchedResults.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="28" column="3" lean-forward="false" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="39" column="21" lean-forward="false" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/searchedResults.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="1257" column="0" lean-forward="false" selection-start-line="1257" selection-start-column="0" selection-end-line="1257" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="64" column="19" lean-forward="false" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ramcour/Compressed/news-cards-css-only/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa8736.32300/index.php" />
-    <entry file="file://$USER_HOME$/Desktop/ramcour/Compressed/BookShaala-master/BookShaala-master/search.php" />
-    <entry file="file://$USER_HOME$/Desktop/ramcour/Compressed/BookShaala-master/BookShaala-master/index.php" />
-    <entry file="file://$PROJECT_DIR$/../BookShaala-master/index.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa552.8245/googlebooks.js" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DRa552.16965/googlebooks-search-master/index.html" />
-    <entry file="file://$PROJECT_DIR$/../xampp/BookShaala-master/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1114">
-          <caret line="115" column="38" lean-forward="false" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Review.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Review/reviewsList.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/ReviewType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Search/searchFilter.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/userBookInformation.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookSearchResults.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="95" lean-forward="true" selection-start-line="20" selection-start-column="95" selection-end-line="20" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookDetailed.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookInLibraryChecker.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookPreview.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="56" column="48" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookList.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/libraryBooks.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="55" lean-forward="false" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/LibraryBooksFilterType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/AuthorBook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -614,7 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-248">
           <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -622,29 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
-          <folding>
-            <element signature="e#36#68#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ReviewRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="46" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/LibraryBookRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
-          <folding>
-            <element signature="e#275#708#0#PHP" expanded="false" />
-            <element signature="e#713#1146#0#PHP" expanded="false" />
-            <element signature="e#1151#1576#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -652,7 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="14" column="57" lean-forward="false" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,11 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="51" />
-          <folding>
-            <element signature="e#120#148#0#PHP" expanded="false" />
-            <element signature="e#1077#1469#0#PHP" expanded="false" />
-            <element signature="e#1475#3853#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -672,15 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="1062" column="16" lean-forward="false" selection-start-line="1062" selection-start-column="15" selection-end-line="1062" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/LibraryBook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -688,39 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="47" column="73" lean-forward="false" selection-start-line="47" selection-start-column="73" selection-end-line="47" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Book.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/AuthorBookRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/SearchFilterType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,27 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="128" column="20" lean-forward="false" selection-start-line="128" selection-start-column="20" selection-end-line="128" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/BookRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding>
-            <element signature="e#39#67#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/databaseSearchController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="28" column="54" lean-forward="true" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
-          <folding>
-            <element signature="e#40#66#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -756,28 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BookController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="110" column="7" lean-forward="false" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="7" />
-          <folding>
-            <element signature="e#597#2038#0#PHP" expanded="false" />
-            <element signature="e#2045#2139#0#PHP" expanded="false" />
-            <element signature="e#2144#2574#0#PHP" expanded="false" />
-            <element signature="e#2576#2585#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Service/DatabaseBookSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -785,32 +683,306 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="30" column="108" lean-forward="false" selection-start-line="30" selection-start-column="108" selection-end-line="30" selection-end-column="108" />
-          <folding>
-            <element signature="e#152#301#0#PHP" expanded="false" />
-            <element signature="e#306#641#0#PHP" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/SearchFilterType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/LibraryBooksFilterType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/css/mixins/_text-hide.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Stats/popularBooks.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Stats/popularCategories.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/AuthorBook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/databaseSearchController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/BookRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="77" column="4" lean-forward="true" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/AuthorBookRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/LibraryBook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1670">
+          <caret line="160" column="6" lean-forward="false" selection-start-line="160" selection-start-column="6" selection-end-line="160" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/LibraryBookRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="79" column="48" lean-forward="false" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookInLibraryChecker.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Review.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Service/DatabaseBookSearch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/accueil.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1444">
+          <caret line="110" column="46" lean-forward="false" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/StatsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Books/bookSellExchangeGiveawayStatus.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookDetailed.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="94" column="10" lean-forward="true" selection-start-line="94" selection-start-column="10" selection-end-line="94" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ReviewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="253">
+          <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Author/bookAuthorsList.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/scrollbook.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BookController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="26" column="66" lean-forward="false" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AuthorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Author/authorProfile.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="60" lean-forward="false" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/LibraryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="37" column="57" lean-forward="false" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
+        <state relative-caret-position="229">
+          <caret line="65" column="62" lean-forward="false" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="93" column="46" lean-forward="false" selection-start-line="93" selection-start-column="46" selection-end-line="93" selection-end-column="46" />
           <folding>
-            <element signature="e#603#823#0#PHP" expanded="false" />
-            <element signature="e#989#1693#0#PHP" expanded="false" />
-            <element signature="e#1829#2589#0#PHP" expanded="false" />
-            <element signature="e#2640#3029#0#PHP" expanded="false" />
-            <element signature="e#3902#4182#0#PHP" expanded="false" />
+            <element signature="e#1003#1022#1#PHP" expanded="false" />
+            <element signature="e#1417#1817#0#PHP" expanded="false" />
+            <element signature="e#3185#3969#0#PHP" expanded="false" />
+            <element signature="e#3852#3875#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookPreview.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="48" column="75" lean-forward="false" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="51" column="86" lean-forward="false" selection-start-line="51" selection-start-column="86" selection-end-line="51" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Book/bookSearchResults.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Books/bookSearchedFromDatabase.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459">
+          <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ReviewRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Search/searchFilter.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="108" lean-forward="false" selection-start-line="7" selection-start-column="108" selection-end-line="7" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Books/bookById.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="59" column="53" lean-forward="false" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/decouvrir.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="49" column="53" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#107#1570#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Review/reviewsList.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/userLibrary.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/constructLibrary.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="86" lean-forward="false" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Books/bookSearchedFromApi.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="67" lean-forward="false" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    My library Constructor
+{% endblock %}
+{% block body %}
+    <div class="container mt-4" style="min-height: 500px">
+        <h1>Add the books I own to my virual Library</h1>
+        <h6> <small>**using the Google Books Api.</small></h6>
+        {{ form_start(searchFilterForm , {'attr' : { 'class': 'form-inline' } , 'action': path('library_constructor')}) }}
+            {{ form_row(searchFilterForm.intitle , {'attr' : { 'class': 'rounded mx-2' }}) }}
+            {{ form_row(searchFilterForm.inauthor, {'attr' : { 'class': 'rounded mx-2' }}) }}
+            {{ form_row(searchFilterForm.inpublisher , {'attr' : { 'class': 'rounded mx-2' }}) }}
+            {{ form_row(searchFilterForm.isbn , {'attr' : { 'class': 'rounded mx-2' }}) }}
+        <button type="submit" class="btn btn-primary">Search</button>
+        {{ form_end(searchFilterForm) }}
+
+        <div class="row active-with-click">
+            {% for item in items %}
+                <div class="col-md-4 col-sm-6 col-xs-12 my-3 rounded"> {% include ':Books:bookSearchedFromApi.html.twig' with {'item': item} %}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
