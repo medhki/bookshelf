@@ -31,21 +31,21 @@ class Author
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255 , nullable=true)
      */
     private $prenom;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateNaissance", type="date")
+     * @ORM\Column(name="dateNaissance", type="date" , nullable=true)
      */
     private $dateNaissance;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pays", type="string", length=255)
+     * @ORM\Column(name="pays", type="string", length=255 , nullable=true)
      */
     private $pays;
 

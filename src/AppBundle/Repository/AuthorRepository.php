@@ -22,4 +22,20 @@ class AuthorRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+    public function authorsList ($letter = null){
+        $qb = $this
+            ->createQueryBuilder('a')
+            ->orderBy('a.nom' , 'ASC')
+        ;
+        if ($letter){
+            $qb->where('a.nom LIKE :letter')
+                ->setParameter('letter', $letter.'%')
+            ;
+        }
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

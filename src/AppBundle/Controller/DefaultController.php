@@ -39,7 +39,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/accueil", name="accueil")
+     * @Route("/home", name="accueil")
      */
     public function accueilAction()
     {
@@ -49,12 +49,11 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/scroll", name="scroll")
+     * @Route("/browse", name="browse")
      */
-    public function scrollAction()
+    public function browseAction()
     {
-
-        return $this->render('scrollbook.html.twig');
+        return $this->render('browse.html.twig');
     }
 
     /**
@@ -81,12 +80,12 @@ class DefaultController extends Controller
      */
     public function apiSearchBookAction(Request $request)
     {
+        $items = [];
+        $data =  $request->query->get('app_bundle_search_filter_type');
         $form = $this->createForm(SearchFilterType::class);
-        $form->handleRequest($request);
-        $items=[];
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($data) {
             // the GoogleBooksSearcher generates the results from the google books api as an array
-            $items = $this->booksSearcher->apiSearchResult($form->getData());
+            $items = $this->booksSearcher->apiSearchResult(array_slice($data, 0, 4));
             if (!$items) {
                 $this->addFlash('error', 'pas de resultat');
             }
@@ -100,19 +99,6 @@ class DefaultController extends Controller
     /**
      * @Route ("/bridgeMeslivre",name="")
      */
-    public function bridgeMesLivresAction()
-    {
-
-        // test if the user is logged
-        if ($this->getUser()) {
-            return $this->render();
-        }
-
-        //loggid true => render the mesLivresListeAction
-
-
-        //False => render the loginAction
-    }
 
     /**
      * @param $id
@@ -121,6 +107,9 @@ class DefaultController extends Controller
      */
     public function userLibraryBooksAction($id)
     {
+        if (!$this->getUser()){
+            return $this->redirectToRoute('fos_user_security_login');
+        }
         $userBooks = [];
         if ($id == 0) {
             $user = $this->getUser();

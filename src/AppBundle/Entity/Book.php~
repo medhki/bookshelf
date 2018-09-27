@@ -28,7 +28,7 @@ class Book
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
-
+    
     /**
      * @var string
      *
@@ -46,7 +46,7 @@ class Book
     /**
      * @var int
      *
-     * @ORM\Column(name="isbn", type="integer", unique=false)
+     * @ORM\Column(name="isbn", type="integer", unique=false, nullable=true)
      */
     private $isbn;
 

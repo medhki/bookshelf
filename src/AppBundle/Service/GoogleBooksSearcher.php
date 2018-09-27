@@ -12,7 +12,8 @@ namespace AppBundle\Service;
 class GoogleBooksSearcher
 {
     public function removeNullInputs(array $searchedData){
-        return array_filter($searchedData, function($input){return !is_null($input);} );
+
+        return array_filter($searchedData);
     }
     public function ApiLink(array $searchedData){
         $inputs= $this->removeNullInputs($searchedData);

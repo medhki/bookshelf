@@ -3,13 +3,7 @@
   box-sizing: border-box;
 }
 
-body {
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  font-family: "Open Sans", sans-serif;
-}
 
 a {
   text-decoration: none;
@@ -59,7 +53,7 @@ h1 {
 }
 .card .wrapper {
   background-color: #fff;
-  min-height: 70vh;
+  min-height: 50vh;
   position: relative;
   overflow: hidden;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);

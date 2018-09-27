@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ category }}
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Category : <small>{{ category | upper }} ({{ books | length }} Books)</small></h1>
+
+        <div class="row justify-content-center">
+            {% for book in books %}
+                <a class="col-md-3 mx-1 my-2 " href="{{ path('book_show' , {'id': book.id}) }}" style="overflow: hidden; text-decoration: underline;">
+                    <img height="100px" width="60px" src="{% if book.thumbnail is defined %}{{ book.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}">
+                    <h5><small>{{ book.titre }}</small></h5>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

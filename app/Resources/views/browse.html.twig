@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Browse through books
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <a class="col-md-12" href="{{ path('books_full_list') }}"><h1> Full books list</h1></a>
+            <a class="col-md-9" href="{{ path('books_full_list') }}"><img height="300 px" class="col-md-12" src="https://c.tribune.com.pk/2013/02/505909-Books-1360629521.JPG" alt=""></a>
+        </div>
+        <div class="row justify-content-center">
+            <a class="col-md-12" href=""{{ path('authors_full_list') }}""><h1 class=> Full Authors List</h1></a>
+            <a class="col-md-8" href="{{ path('authors_full_list') }}"><img height="300px" class="col-md-12" src="https://4.bp.blogspot.com/-Oyp0i3QMo7I/WFeOfq0gjxI/AAAAAAAACIk/IYIdS1tZRkEanFHdnANjInQG-thudbqiwCLcB/s1600/books.jpg" alt=""></a>
+        </div>
+        <div class="row justify-content-center">
+            <a class="col-md-12" href="{{ path('categories_full_list') }}"><h1> Full Categories List</h1></a>
+            <a class="col-md-9" href="{{ path('categories_full_list') }}"><img height="300px" class="col-md-12" src="https://waynehastings.com/wp-content/uploads/2014/11/book_category.jpg" alt="Categories  List"></a>
+        </div>
+        
+        
+    </div>
+{% endblock %}

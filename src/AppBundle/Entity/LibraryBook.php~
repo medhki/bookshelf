@@ -305,4 +305,52 @@ class LibraryBook
     {
         return $this->price;
     }
+
+    /**
+     * Set sell
+     *
+     * @param boolean $sell
+     *
+     * @return LibraryBook
+     */
+    public function setSell($sell)
+    {
+        $this->sell = $sell;
+
+        return $this;
+    }
+
+    /**
+     * Get sell
+     *
+     * @return boolean
+     */
+    public function getSell()
+    {
+        return $this->sell;
+    }
+
+    /**
+     * Set giveaway
+     *
+     * @param boolean $giveaway
+     *
+     * @return LibraryBook
+     */
+    public function setGiveaway($giveaway)
+    {
+        $this->giveaway = $giveaway;
+
+        return $this;
+    }
+
+    /**
+     * Get giveaway
+     *
+     * @return boolean
+     */
+    public function getGiveaway()
+    {
+        return $this->giveaway;
+    }
 }

@@ -64,7 +64,6 @@ class LibraryBookRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
-
     public function bookSellList(Book $book){
         $qb = $this
             ->createQueryBuilder('lb')
@@ -89,7 +88,6 @@ class LibraryBookRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
-
     public function bookGiveawayList(Book $book){
         $qb = $this
             ->createQueryBuilder('lb')
@@ -102,5 +100,19 @@ class LibraryBookRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+    public function lastAddedBooks($limit){
+        $qb = $this
+            ->createQueryBuilder('lb')
+            ->orderBy('lb.dateAjout','DESC')
+            ->setMaxResults($limit)
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
+
 
 }

@@ -25,7 +25,6 @@ class BookRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
-
     public function authorListOfBooks (Author $author){
         $qb = $this
             ->createQueryBuilder('b')
@@ -38,7 +37,6 @@ class BookRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
-
     public function popularCategories ($limit){
         $qb = $this
             ->createQueryBuilder('b')
@@ -52,6 +50,8 @@ class BookRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+
+
     public function popularBooks ($limit){
         $qb = $this
             ->createQueryBuilder('b')
@@ -70,6 +70,50 @@ class BookRepository extends \Doctrine\ORM\EntityRepository
             ->groupBy('b.category')
             ->orderBy('categoryCount' , 'DESC')
         ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function randomBooks($limit){
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->addSelect('RAND() as HIDDEN rand')
+            ->addOrderBy('rand')
+            ->setMaxResults($limit)
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function booksList ($letter = null){
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->orderBy('b.titre' , 'ASC')
+        ;
+        if ($letter){
+            $qb->where('b.titre LIKE :letter')
+                ->setParameter('letter', $letter.'%')
+                ;
+        }
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function categoriesList ($letter = null){
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->select('count(b.category) as categoryCount, b.category')
+            ->groupBy('b.category')
+            ->orderBy('b.category' , 'ASC')
+        ;
+        if ($letter){
+            $qb ->where('b.category LIKE :letter')
+                ->setParameter('letter', $letter.'%')
+            ;
+        }
         return $qb
             ->getQuery()
             ->getResult()

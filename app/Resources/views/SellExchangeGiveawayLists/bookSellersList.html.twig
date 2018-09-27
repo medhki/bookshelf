@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ bookList[0].book.titre }}
+{% endblock %}
+{% block body %}
+    <div class="offset-md-2 container my-5">
+        <h1><small>{{ bookList[0].book.titre }} by {{ render(controller('AppBundle:Book:bookAuthorsList',{ 'book': bookList[0].book.id })) }}</small></h1>
+        <div class="row col-12 my-5">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': bookList[0].book.id })) }}</div>
+        <h2 class="mt-2"><small>They want to sell theirs !</small></h2>
+
+        <div class="row ">
+            {% for book in bookList %}
+                <div class="col-md-4 " style="font-size: 30px">{{ render(controller('AppBundle:Book:bookInLibraryOwner',{ 'id': book.id })) }}</div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

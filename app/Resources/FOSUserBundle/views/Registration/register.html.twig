@@ -1,0 +1,17 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+    <div class=" container row " >
+        <div class="col-md-3">
+
+        </div>
+        <div class=" col-md-6" style="padding-bottom: 20px;padding-top: 20px">
+            <h2>Inscription <span><a href="{{ path('fos_user_security_login') }}"><h6> Vous avez deja un compte</h6></a></span></h2>
+            {% include "@FOSUser/Registration/register_content.html.twig" %}
+        </div>
+        <div class=" col-md-3" style="padding-bottom: 20px;padding-top: 20px">
+
+
+        </div>
+    </div>
+{% endblock fos_user_content %}

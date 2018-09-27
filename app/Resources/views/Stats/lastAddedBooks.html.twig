@@ -1,0 +1,17 @@
+<div class="row">
+    <div id="owl-example" class="owl-carousel" >
+        {% for bookLibrary in lastAddedBooksByUsers  %}
+            <div class="flex-column justify-content-around px-2">
+                <a href="{{ path('book_show' , {'id':bookLibrary.book.id}) }}">
+                    {% if bookLibrary.book.thumbnail %}
+                        <img class="" width="100" height="250px" src="{{ bookLibrary.book.thumbnail }}" alt="{{ bookLibrary.book.titre }}">
+                    {% else %}
+                        <img class="" width="100" height="250px" src="{{ asset('images/unnamed.png') }}" alt="{{ bookLibrary.book.titre }}">
+                    {% endif %}
+                </a>
+                <div>{{ bookLibrary.book.titre }}</div>
+                <div>  <a href="">by {{ bookLibrary.library.designation }}</a></div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

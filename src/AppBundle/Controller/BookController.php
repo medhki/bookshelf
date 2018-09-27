@@ -29,10 +29,20 @@ class BookController extends Controller
     public function showBookAction($id , Request $request){
         $repoBook = $this->getDoctrine()->getManager()->getRepository(Book::class);
         $book = $repoBook->find($id);
+        $owned = false;
+
         if ($book) {
             $book->setViewsCount($book->getViewsCount() + 1);
             $user = $this->getUser();
             if ($user) {
+                // test if the book is owned by current user
+                $repoLibraryBook = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
+                $owned = boolval($repoLibraryBook->findBy(array(
+                    'library' => $user->getLibrary() ,
+                    'book' => $book
+                )));
+
+
                 $em = $this->getDoctrine()->getManager();
                 $repository = $em->getRepository(Review::class);
                 $review = $repository->findOneBy(array('book' => $book, 'user' => $user));
@@ -64,9 +74,11 @@ class BookController extends Controller
             return $this->render(':Books:bookById.html.twig', array(
                 'book' => $book,
                 'reviewForm' => $reviewForm->createView(),
-                'status' => $status
+                'status' => $status,
+                'owned' => $owned
             ));
         }
+
         return $this->redirectToRoute('decouvrir');
     }
 
@@ -79,7 +91,7 @@ class BookController extends Controller
         $repository = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
         $libraryBook= $repository->findOneBy(array('book'=>$book , 'library' => $library));
         return $this->render('@App/Book/userBookInformation.html.twig', array(
-            'userBookInfo' => $libraryBook
+            'libraryBook' => $libraryBook
         ));
     }
 
@@ -107,44 +119,89 @@ class BookController extends Controller
         ));
     }
 
-//    /**
-//     * @Route("/exchange/{id}", defaults={"id" = 0} , requirements={"id" : \d})
-//     */
-//    public function exchangeListAction($id){
-//        $repositoryUser = $this->getDoctrine()->getManager()->getRepository(User::class);
-//        $user = $repositoryUser->find($id);
-//        $repositoryLibraryBook = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
-//        $bookList = $repositoryLibraryBook->exchangeList($user);
-//        return $this->render('@App/Book/bookList.html.twig', array(
-//            'bookList' => $bookList,
-//        ));
-//    }
-//
-//    /**
-//     * @Route("/sell/{id}", defaults={"id" = 0} , requirements={"id" : \d})
-//     */
-//    public function sellListAction($id){
-//        $repositoryUser = $this->getDoctrine()->getManager()->getRepository(User::class);
-//        $user = $repositoryUser->find($id);
-//        $repositoryLibraryBook = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
-//        $bookList = $repositoryLibraryBook->sellList($user);
-//        return $this->render('@App/Book/bookList.html.twig', array(
-//            'bookList' => $bookList,
-//        ));
-//    }
-//
-//    /**
-//     * @Route("/giveaway/{id}", defaults={"id" = 0} , requirements={"id" : \d})
-//     */
-//    public function giveawayListAction($id){
-//        $repositoryUser = $this->getDoctrine()->getManager()->getRepository(User::class);
-//        $user = $repositoryUser->find($id);
-//        $repositoryLibraryBook = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
-//        $bookList = $repositoryLibraryBook->giveawayList($user);
-//        return $this->render('@App/Book/bookList.html.twig', array(
-//            'bookList' => $bookList,
-//        ));
-//    }
+    /**
+     * @param $id
+     * @Route(name="sell_statut_toggle")
+     */
+    public function userBookSellToggle(LibraryBook $libraryBook){
 
+    }
+    /**
+     * @param $id
+     * @Route("/toggle/exchange/{id}",name="exchange_statut_toggle")
+     */
+    public function userBookExchangeToggle(LibraryBook $libraryBook){
+        $em = $this->getDoctrine()->getManager();
+        if ($libraryBook->getExchange()){
+            $libraryBook->setExchange(false);
+        }else{
+            $libraryBook->setExchange(true);
+        }
+        $em->flush();
+        return $this->redirectToRoute('book_show', array('id' => $libraryBook->getBook()->getId()));
+    }
+    /**
+     * @param $id
+     * @Route("/toggle/giveaway/{id}", name="giveaway_statut_toggle")
+     */
+    public function userBookGiveawayToggle(LibraryBook $libraryBook){
+        $em = $this->getDoctrine()->getManager();
+        if ($libraryBook->getGiveaway()){
+            $libraryBook->setGiveaway(false);
+        }else{
+            $libraryBook->setGiveaway(true);
+        }
+        $em->flush();
+        return $this->redirectToRoute('book_show', array('id' => $libraryBook->getBook()->getId()));
+    }
 
+    /**
+     * @Route("/exchangers/{id}" , requirements={"id" : "\d*"}  , name="book_exchangers_list")
+     */
+    public function exchangerListAction(Book $book){
+        $repositoryLibraryBook = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
+        $bookExchangeList = $repositoryLibraryBook->findBy(array('book' => $book , 'exchange'=>true));
+        return $this->render(':SellExchangeGiveawayLists:bookexchangersList.html.twig', array(
+            'bookList' => $bookExchangeList
+        ));
+    }
+
+    /**
+     * @Route("/sellers/{id}",  requirements={"id" : "\d*"}  , name="book_sellers_list")
+     */
+    public function sellerListAction(Book $book){
+        $repositoryLibraryBook = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
+        $bookSellersList = $repositoryLibraryBook->findBy(array('book' => $book , 'sell'=>true));
+        return $this->render(':SellExchangeGiveawayLists:booksellersList.html.twig', array(
+            'bookList' => $bookSellersList
+        ));
+    }
+
+    /**
+     * @Route("/givers/{id}",  requirements={"id" : "\d*"}  , name="book_givers_list")
+     */
+    public function giversListAction(Book $book){
+        $repositoryLibraryBook = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
+        $bookGiversList = $repositoryLibraryBook->findBy(array('book' => $book , 'giveaway'=>true));
+        return $this->render(':SellExchangeGiveawayLists:bookGiversList.html.twig', array(
+            'bookList' => $bookGiversList
+        ));
+    }
+
+    /**
+     * @Route("/owners/{id}",   name="book_owners_list")
+     */
+    public function ownersListAction(Book $book){
+        $repositoryLibraryBook = $this->getDoctrine()->getManager()->getRepository(LibraryBook::class);
+        $bookOwnersList = $repositoryLibraryBook->findBy(array('book' => $book));
+        return $this->render(':SellExchangeGiveawayLists:bookOwnersList.html.twig', array(
+            'bookList' => $bookOwnersList
+        ));
+    }
+
+    public function bookInLibraryOwnerAction(LibraryBook $libraryBook){
+        $repo = $this->getDoctrine()->getManager()->getRepository(User::class);
+        $owner = $repo->findOneBy(array('library' => $libraryBook->getLibrary()));
+        return $this->render('bookOwnerName.html.twig', array('user' => $owner));
+    }
 }

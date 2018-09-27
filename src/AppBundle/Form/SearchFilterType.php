@@ -13,7 +13,7 @@ class SearchFilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setMethod('POST')
+            ->setMethod('GET')
             ->add('intitle',\Symfony\Component\Form\Extension\Core\Type\TextType::class,array(
                 'attr' => array(
                     'placeholder' => 'Title',

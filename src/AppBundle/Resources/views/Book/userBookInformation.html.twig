@@ -1,3 +1,28 @@
-{% if userBookInfo %}
-    {{ dump(userBookInfo) }}
-{% endif %}
+
+    <a class="btn btn-success col-3" href="{{ path('exchange_statut_toggle' , {'id':libraryBook.id }) }}">
+        {% if libraryBook.exchange  %}
+            don't exchange
+        {% else %}
+            put for exchange
+        {% endif %}
+    </a>
+
+    <form action="{{ path('sell_statut_toggle' , {'id':libraryBook.id }) }}" method="post">
+        {% if libraryBook.sell  %}
+            <input type="number" name="price" value="{{ libraryBook.price }}">
+            <input class="btn btn-secaondary col-3" type="submit" name="update" value="Update">
+        {% else %}
+            <input class="col-2" type="number" name="price" value="0">
+        {% endif %}
+            <input class="btn btn-danger col-3" type="submit" name="sellToogle" value="{% if libraryBook.sell  %} don't sell {% else %} Put for sale {% endif %}">
+    </form>
+
+
+    <a class="btn btn-warning col-3" href="{{ path('giveaway_statut_toggle' , {'id':libraryBook.id }) }}">
+        {% if libraryBook.giveaway  %}
+            Hold the giveaway
+        {% else %}
+            Giveaway
+        {% endif %}
+    </a>
+

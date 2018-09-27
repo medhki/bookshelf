@@ -1,63 +1,112 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Decouvrir books
+    Explore Available books
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .owl-buttons {
+            display: none;
+        }
+        .owl-carousel:hover .owl-buttons {
+            display: block;
+        }
 
+        .owl-item {
+            text-align: center;
+        }
+
+        .owl-theme .owl-controls .owl-buttons div {
+            background: transparent;
+            color: #879490;
+            font-size: 40px;
+            line-height: 300px;
+            margin: 0;
+            padding: 0 60px;
+            position: absolute;
+            top: 0;
+        }
+        .owl-theme .owl-controls .owl-buttons .owl-prev {
+            left: 0;
+            padding-left: 20px;
+        }
+        .owl-theme .owl-controls .owl-buttons .owl-next {
+            right: 0;
+            padding-right: 20px;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
     {% block Searche_Block %}
         <section class="ftco-section bg-light">
-            <div class="container">
-
-                <div class="row justify-content-center">
-                    <div class="col-md-8 ftco-animate">
+            <div class="container-fluid">
+                <div class="row mt-3 mb-0">
+                    {#<div class="col-md-3 text-center heading-section ftco-animate">#}
+                        {#<h2 class="mb-4">Join us, Share your books with others and enjoy theirs <br><strong>For FREE</strong> </h2>#}
+                        {#<p>Profitez de nos services c'est <strong>gratuit</strong></p>#}
+                        {#{{ render(controller('AppBundle:Stats:popularBooks',{ 'limit': 3 })) }}#}
+                        {#{{ render(controller('AppBundle:Stats:popularCategories',{ 'limit': 3 })) }}#}
+                    {#</div>#}
+                    <div class="col-md-12 ftco-animate">
                         <form action="" method="get" class="domain-form">
                             <div class="form-group d-md-flex">
                                 <input type="text" name="q" class="form-control px-4" placeholder="Entrer le nom de livre ou ISBN...">
                                 <input type="submit" class="search-domain btn btn-primary px-5" value="Recherche">
                             </div>
                         </form>
-                    </div>
-                    {{ render(controller('AppBundle:Stats:popularBooks',{ 'limit': 3 })) }}
-                    {{ render(controller('AppBundle:Stats:popularCategories',{ 'limit': 3 })) }}
-                </div>
-
-                <div class="row justify-content-center mb-5 mt-5">
-                    <div class="col-md-7 text-center heading-section ftco-animate">
-                        <span class="subheading">Exploiter notre gigantesque biblioteque</span>
-                        <h2 class="mb-4">COMMENCER ET CREER VOTRE COMPTE <strong>GRATUIT</strong> </h2>
-                        <p>Profitez de nos services c'est <strong>gratuit</strong></p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    {% endblock %}
-
-
-    {% block Searche_Result_Block %}
-        {% if searched %}
-            <section class="ftco-section bg-light">
-            <div class="container-fluid">
-
-                <div class="row justify-content-center">
-                    <div class="col-md-12 ftco-animate">
-                        <h1> resultats recherche pour " {{ searched }} "</h1>
-                        <div class="row active-with-click">
-                            {% for book in books %}
-                                <div class="col-md-4 col-sm-6 col-xs-12 my-3">
-                                    {% include ':Books:bookSearchedFromDatabase.html.twig' with {'book' : book} %}
-                                    <div class="row mt-0">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': book.id })) }}</div>
+                        {% if searched %}
+                            <div class="row justify-content-center mt-0">
+                                <div class="col-md-12 ftco-animate">
+                                    <h1> resultats recherche pour " {{ searched }} "</h1>
+                                    <div class="row active-with-click mt-1">
+                                        {% for book in books %}
+                                            <div class="col-md-6 col-sm-12 col-xs-12 my-0">
+                                                <div class="row">{% include ':Books:bookSearchedFromDatabase.html.twig' with {'book' : book} %}</div>
+                                                <div class="row">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': book.id })) }}</div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
-                            {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div>
+                            <h1>Most Popular Books</h1>
+                            {{ render(controller('AppBundle:Stats:mostViewedBooks',{ 'limit': 10 })) }}
                         </div>
+                        <div>
+                            <h1>Last Added Books</h1>
+                            {{ render(controller('AppBundle:Stats:lastAddedBooks',{ 'limit': 10 })) }}
+                        </div>
+                        <div>
+                            <h1>You may Like this? </h1>
+                            {{ render(controller('AppBundle:Stats:randomBooks',{ 'limit': 10 })) }}
+                        </div>
+
                     </div>
                 </div>
 
             </div>
         </section>
-        {% endif %}
     {% endblock %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+    <script>
 
+        $(document).ready(function() {
 
+            $("#owl-example").owlCarousel({
+                itemsDesktop : [1499,4],
+                itemsDesktopSmall : [1199,3],
+                itemsTablet : [899,2],
+                itemsMobile : [599,1],
+                navigation : true,
+                navigationText : ['<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-left fa-stack-1x fa-inverse"></i></span>','<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-right fa-stack-1x fa-inverse"></i></span>'],
+            });
+
+        });
+    </script>
 {% endblock %}

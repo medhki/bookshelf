@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}
+    {{ book.titre }}
+{% endblock %}
 {% block body %}
     <div class="container">
-        <div class="row py-3" style="border: 0.5px solid grey; border-radius: 5px">
+        <div class="row py-3 my-2" style="border: 0.5px solid grey; border-radius: 5px">
             <div class="col-md-4 flex-column">
                 <div class="mx-auto mb-2">
                     {% if book.thumbnail %}
-                        <img width="90%" src="{{ book.thumbnail }}" alt="{{ book.titre }}">
+                        <img class="img-fluid" width="80%" src="{{ book.thumbnail }}" alt="{{ book.titre }}">
                     {% else %}
-                        <img class="img-fluid" height="150px" src="{{ asset('images/unnamed.png') }}" alt="{{ book.titre }}">
+                        <img class="img-fluid" width="80%" src="{{ asset('images/unnamed.png') }}" alt="{{ book.titre }}">
                     {% endif %}
                 </div>
                 <div>
                 {% if book.category %}
-                    category : {{ book.category }}
+                    category : <a href="{{ path('books_in_category', {'category': book.category }) }}">{{ book.category }}</a>
                 {% endif %}
                 </div>
                 <div>
@@ -28,7 +30,7 @@
                     </div>
                 {% endif %}
                 {% if app.user %}
-                    <button class="btn btn-dark my-3 "> {{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':book.apiId  })) }}</button>
+                     {{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':book.apiId  })) }}
                 {% endif %}
         </div>
             <div class="px-2 col-md-8 flex-column">
@@ -36,16 +38,16 @@
                 <h5 class="font-weight-bold text-secondary"> by {{ render(controller('AppBundle:Book:bookAuthorsList',{ 'book': book.id })) }} </h5>
                 <h6> <small>published in {{ book.anneePublication | date('d M Y') }}</small></h6>
                 <h5 class="text-justified"><small>{{ book.description | raw }}</small></h5>
-                <div class="row mt-4">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': book.id })) }}</div>
+                <div class="row col-12 mt-4">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': book.id })) }}</div>
 
             </div>
         </div>
-        <div class="row py-3">
-            {% if app.user %}
+        <div class="row py-1 my-2">
+            {% if app.user and owned %}
                 {{ render(controller('AppBundle:Book:bookUserInformation',{ 'book': book } )) }}
             {% endif %}
         </div>
-        <div class="row">
+        <div class="row my-1">
         {% if app.user %}
             {{ form_start(reviewForm, {'attr': {'class': 'form-horizontal col-12'}}) }}
                 {{ form_errors(reviewForm) }}

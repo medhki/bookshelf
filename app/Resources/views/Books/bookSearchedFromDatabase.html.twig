@@ -1,6 +1,6 @@
 <div class="example-2 card">
     <div class="wrapper"
-         style="background: url({% if book.thumbnail is defined %}{{ book.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}) center/cover no-repeat;">
+         style="background: url({% if book.thumbnail is defined %}{{ book.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}) center no-repeat;">
         <div class="header">
             <div class="date">
                 <span class="day">
@@ -41,10 +41,15 @@
                             {{ render(controller('AppBundle:Book:bookAuthorsList',{ 'book': book.id })) }}
                         </span>
                 <h5 class="title" style="font-size: 15px;">
-                    <a href="#">
+                    <a href="{{ path('book_show' , {'id':book.id}) }}">
                         {{ book.titre }}
                     </a>
                 </h5>
+                <p class="text">
+                    {% if book.textSnippet is defined %}
+                        {{ (book.textSnippet |length > 60 ? book.textSnippet|slice(0, 60) ~ '...' : book.textSnippet)   | raw }}
+                    {% endif %}
+                </p>
                 {% if app.user %}
                     {{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':book.apiId  })) }}
                 {% endif %}

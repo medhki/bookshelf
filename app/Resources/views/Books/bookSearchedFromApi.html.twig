@@ -1,6 +1,6 @@
 <div class="example-2 card">
     <div class="wrapper"
-         style="background: url({% if item.volumeInfo.imageLinks.thumbnail is defined %}{{ item.volumeInfo.imageLinks.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}) center/cover no-repeat;">
+         style="background: url({% if item.volumeInfo.imageLinks.thumbnail is defined %}{{ item.volumeInfo.imageLinks.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}) center no-repeat;">
         <div class="header">
             <div class="date">
                 <span class="day">
@@ -9,7 +9,6 @@
                     {% endif %}
                 </span>
             </div>
-            <br>
             <ul class="menu-content">
                 <li style="font-size: 12px">
                     {% if item.volumeInfo.categories[0] is defined %}
@@ -44,14 +43,13 @@
                             {% endif %}
                         </span>
                 <h5 class="title">
-                    <a href="#">
-                        {{ item.volumeInfo.title }}
-                    </a>
+                        <a href="#">
+                            {{ item.volumeInfo.title }}
+                        </a>
                 </h5>
                 <p class="text">
-                    <br>
                     {% if item.searchInfo.textSnippet is defined %}
-                        {{ (item.searchInfo.textSnippet |length > 50 ? item.searchInfo.textSnippet|slice(0, 50) ~ '...' : item.searchInfo.textSnippet)   | raw }}
+                        {{ (item.searchInfo.textSnippet |length > 60 ? item.searchInfo.textSnippet|slice(0, 60) ~ '...' : item.searchInfo.textSnippet)   | raw }}
                     {% endif %}
                 </p>
                 {{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':item.id  })) }}
@@ -59,3 +57,57 @@
         </div>
     </div>
 </div>
+{#<div class="row py-1">#}
+    {#<div class="col-3 px-2 py-2 flex-column">#}
+        {#<img class="img-fluid row" width="80%" src="{% if item.volumeInfo.imageLinks.thumbnail is defined %}{{ item.volumeInfo.imageLinks.thumbnail }} {% else %}{{ asset('images/unnamed.png') }}{% endif %}" alt="">#}
+        {#{{ render(controller('AppBundle:Library:bookInLibrarayChecker', { 'apiId':item.id  })) }}#}
+    {#</div>#}
+
+    {#<div class="col-9 px-2 py-2">#}
+        {#<h5 class="title">#}
+            {#<small>#}
+                {#<a href="#">#}
+                    {#{{ item.volumeInfo.title }}#}
+                {#</a>#}
+            {#</small>#}
+        {#</h5>#}
+        {#<p>#}
+            {#<span class="author" style="font-size: 12px">#}
+                {#{% if item.volumeInfo.authors is defined %}#}
+                    {#BY {{ item.volumeInfo.authors | join(' | ') }}#}
+                {#{% endif %}#}
+            {#</span>#}
+            {#in#}
+            {#<span class="day">#}
+                {#{% if item.volumeInfo.publishedDate is defined %}#}
+                    {#{{ item.volumeInfo.publishedDate }}#}
+                {#{% endif %}#}
+            {#</span>#}
+        {#</p>#}
+        {#<p>#}
+            {#<span>#}
+                {#Category :#}
+              {#{% if item.volumeInfo.categories[0] is defined %}#}
+                  {#{{ (item.volumeInfo.categories[0] | join) | length > 25 ? (item.volumeInfo.categories[0] | join) |slice(0, 25) ~ '...' : (item.volumeInfo.categories[0] | join) }}#}
+              {#{% endif %}#}
+            {#</span>#}
+        {#</p>#}
+
+        {#{% if item.volumeInfo.averageRating is defined and (item.volumeInfo.averageRating > 1) %}#}
+            {#<div>#}
+                {#{{ item.volumeInfo.averageRating | round(2) }}#}
+                {#{% for i in 1..(item.volumeInfo.averageRating | round) %}#}
+                    {#<i class="fa fa-star"></i>#}
+                {#{% endfor %}#}
+                {#({{ item.volumeInfo.ratingsCount }} Ratings)#}
+            {#</div>#}
+        {#{% endif %}#}
+        {#{% if item.searchInfo.textSnippet is defined %}#}
+            {#<h5>#}
+                {#{{ (item.searchInfo.textSnippet |length > 150 ? item.searchInfo.textSnippet|slice(0, 150) ~ '...' : item.searchInfo.textSnippet)   | raw }}#}
+            {#</h5>#}
+        {#{% endif %}#}
+
+    {#</div>#}
+{#</div>#}
+{#<hr>#}

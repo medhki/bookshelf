@@ -6,23 +6,31 @@
     <div class="container">
     {% if user %}
         <div class="row">
-
             {% if user == app.user %}
                 <div class="col-9">
                     <h1> Ma Bibliotheque ({{ user.username }})</h1>
                 </div>
                 <div class="col-3">
-                    <a class="btn btn-dark btn-block" href="{{ path('library_constructor') }}"> I have more books</a>
+                    <a class="btn btn-dark btn-block" href="{{ path('library_constructor') }}"> Add Another Book</a>
                 </div>
             {% else %}
                 <h1>  Bibliotheque de {{ user.username }}</h1>
             {% endif %}
+        </div>
+        <div class="row py-3" style="border: 0.5px solid grey; border-radius: 5px">
+            <div class="col-md-3 flex-column">
+                <img src="https://image.ibb.co/jw55Ex/def_face.jpg"  class="img img-rounded img-fluid"/>
             </div>
-
+            <div class="px-2 col-md-9 flex-column">
+                <h3 class="font-weight-bold" style="line-height: normal">{{ user.username }}</h3>
+                <h5 class="font-weight-bold text-secondary"> born in 2100 </h5>
+                <h6> <small>Total of {{ userBooks | length }} books in this Library</small></h6>
+            </div>
+        </div>
         </div>
             <div class="row active-with-click">
             {% for userBook in userBooks %}
-                <div class="col-md-4 col-sm-6 col-xs-12 my-3">
+                <div class="col-md-6 col-sm-12 col-xs-12 my-3">
                     {% include ':Books:bookSearchedFromDatabase.html.twig' with {'book' : userBook.book} %}
                 </div>
             {% endfor %}

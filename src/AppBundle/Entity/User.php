@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -32,6 +34,31 @@ class User extends BaseUser
     private $library;
 
     /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Please enter your phone number.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=7,
+     *     max=25,
+     *     minMessage="The phone number is too short.",
+     *     maxMessage="The phone number is too long.",
+     *     groups={"Registration", "Profile"})
+     */
+    protected $phoneNumber;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Please enter your prenom.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=55,
+     *     minMessage="The prenom is too short.",
+     *     maxMessage="The prenom is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+    protected $prenom;
+
+    /**
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Adresse")
      */
@@ -53,8 +80,7 @@ class User extends BaseUser
     public function setLibrary()
     {
         $this->library = new Library();
-        $this->library->setDesignation('biliotheque de '.$this->getUsername());
-
+        $this->library->setDesignation($this->getUsername());
         return $this;
     }
 
@@ -114,5 +140,53 @@ class User extends BaseUser
     public function getDeleted()
     {
         return $this->deleted;
+    }
+
+    /**
+     * Set phoneNumber
+     *
+     * @param string $phoneNumber
+     *
+     * @return User
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber
+     *
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return User
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
     }
 }

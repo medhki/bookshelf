@@ -76,6 +76,19 @@ class LibraryController extends Controller
     }
 
     /**
+     * @param Book $book
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("remove/{id}" , name="remove_from_my_library")
+     */
+    public function removeBookFromMyLibraryAction(LibraryBook $libraryBook , Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($libraryBook);
+        $em->flush();
+        $referer = $request->headers->get('referer');
+        return $this->redirect($referer);
+    }
+
+    /**
      * @Route("/my-library")
      */
     public function LibraryBooksAction(){

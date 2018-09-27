@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Authors List
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Categories list</h1>
+        <p>
+            <a class="mx-2" href="{{ path('categories_full_list') }}" style="font-size: 20px; color: #00BCD4">All</a>
+            {% for letter in 'a'|upper..'z'|upper %}
+                <a class="mx-2" href="?letter={{ letter }}" style="font-size: 20px; color: #00BCD4">{{ letter }}</a>
+            {% endfor %}
+        </p>
+        <div class="row justify-content-center">
+            {% for category in categories %}
+                <a class="col-md-5 mx-1 my-2" href="{{ path('books_in_category' , {'category': category.category}) }}" style="color:black; overflow: hidden; text-decoration: underline;">
+                    <h5><small>{{ category.category }} ({{ category.categoryCount }} Books)</small></h5>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

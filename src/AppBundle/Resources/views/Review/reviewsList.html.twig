@@ -26,7 +26,11 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-10">
-                    <p> be the first to write a review</p>
+                    <p> be the first to write a review
+                        {% if not app.user  %}
+                            <a href="{{ path('fos_user_registration_register') }}"> Join Us</a>
+                        {% endif %}
+                    </p>
                 </div>
             </div>
         </div>

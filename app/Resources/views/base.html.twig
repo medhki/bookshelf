@@ -12,19 +12,13 @@
 
             <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-
             <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
             <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
             <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
-
             <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
-
             <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
-
             <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css') }}">
             <link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css') }}">
-
-
             <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
             <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -46,14 +40,19 @@
 
                     <div class="collapse navbar-collapse" id="ftco-nav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a href="{{ path('accueil') }}" class="nav-link">Accueil</a></li>
-                            <li class="nav-item"><a href="{{ path('decouvrir') }}" class="nav-link">Découvrir</a></li>
-                            <li class="nav-item"><a href="{{ path('user_library') }}" class="nav-link">Ma bibliotheque</a></li>
-                            <li class="nav-item"><a href="{{ path('library_constructor') }}" class="nav-link">Ajouter des livres</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">Espace PRO</a></li>
+                            <li class="nav-item"><a href="{{ path('accueil') }}" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="{{ path('user_library') }}" class="nav-link">My Library</a></li>
+                            <li class="nav-item"><a href="{{ path('decouvrir') }}" class="nav-link">Books Market</a></li>
+                            <li class="nav-item"><a href="{{ path('browse') }}" class="nav-link">Browse</a></li>
+                            {#<li class="nav-item"><a class="nav-link" href="">Espace PRO</a></li>#}
                             <li class="nav-item"><a href="" class="nav-link">Blog</a></li>
                             <li class="nav-item"><a href="" class="nav-link">Contact</a></li>
-                            <li class="nav-item cta"><a href="" class="nav-link"><span>Se connecter</span></a></li>
+                            {% if app.user %}
+                                <li class="nav-item cta"><a href="{{ path('fos_user_security_logout') }}" class="nav-link"> <span>Deconnexion</span></a></li>
+                                <a href="{{ path('fos_user_profile_edit') }}" class="nav-link"><span>editer</span></a>
+                            {% else %}
+                                <li class="nav-item cta"><a href="{{ path('fos_user_security_login') }}" class="nav-link"><span>Se connecter</span></a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -153,6 +152,8 @@
                 $(function () {
                     $('[data-toggle="tooltip"]').tooltip()
                 })
+
+
             </script>
 
         {% endblock %}

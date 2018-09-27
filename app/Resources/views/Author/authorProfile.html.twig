@@ -17,9 +17,9 @@
             <h1> List of  his books </h1>
             <div class="row active-with-click">
                 {% for authorBook in authorBooks %}
-                    <div class="col-md-4 col-sm-6 col-xs-12 my-3">
-                        {% include ':Books:bookSearchedFromDatabase.html.twig' with {'book' : authorBook.book} %}
-                        <div class="row mt-0">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': authorBook.book.id })) }}</div>
+                    <div class="col-md-4 col-sm-16 col-xs-12 my-3">
+                        <div class="row">{% include ':Books:bookSearchedFromDatabase.html.twig' with {'book' : authorBook.book} %}</div>
+                        <div class="row">{{ render(controller('AppBundle:Book:bookSellExchangeGiveawayStatus',{ 'book': authorBook.book.id })) }}</div>
                     </div>
                 {% endfor %}
             </div>
