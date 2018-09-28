@@ -57,7 +57,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/decouvrir", name="decouvrir")
+     * @Route("/market", name="decouvrir")
      */
     public function decouvrirAction(Request $request)
     {

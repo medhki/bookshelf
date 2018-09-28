@@ -1,6 +1,7 @@
 <p class="domain-price text-center">
+    <button class="btn btn-dark" disabled>top 3 categories</button>
+    <br>
     {% for category in poplarCategories %}
-        <span><small> {{ category.category }} </small> {{ category.categoryCount }} livre(s)</span>
+        <a href="{{ path('books_in_category' , {'category':category.category}) }}"><span><small> {{ category.category }} </small> {{ category.categoryCount }} livre(s)</span></a>
     {% endfor %}
-    <br> <a class="btn btn-success" href="">Liste des categories</a>
 </p>

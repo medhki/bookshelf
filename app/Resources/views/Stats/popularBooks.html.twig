@@ -1,7 +1,8 @@
 <p class="domain-price text-center">
+    <button class="btn btn-dark" disabled>top 3 books</button>
+    <br>
     {% for book in poplarBooks %}
-        <span><small> {{ book.titre }} </small></span>
+        <a href="{{ path('book_show' , {'id':book.id}) }}"><span><small> {{ book.titre }} </small></span></a>
     {% endfor %}
-    <br> <a class="btn btn-success" href="">Top 20 Livres Populaires</a> </span>
 </p>
 

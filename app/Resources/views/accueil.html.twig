@@ -12,13 +12,12 @@
 
                     <div class="one-forth pr-md-4 ftco-animate align-self-md-center"
                          data-scrollax=" properties: { translateY: '70%' }">
-                        <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Echange. <br>
-                            &emsp;&nbsp;Vente. <br> &emsp;&emsp;&nbsp;Achat.</h1>
-                        <p class="mb-md-5 mb-sm-3" data-scrollax="properties: { translateY: '30%', opacity: 2.6 }">Découvrez
-                            votre prochain livre sur <strong>BookShelf </strong> !</p>
-                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#"
-                                                                                              class="btn btn-primary px-4 py-3">Lancer
-                                votre recherche</a></p>
+                        <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Exchange. <br>
+                            &emsp;&nbsp;Sell. <br> &emsp;&emsp;&nbsp;Giveaway.</h1>
+                        <p class="mb-md-5 mb-sm-3" data-scrollax="properties: { translateY: '30%', opacity: 2.6 }">Find
+                            your next book on others users <strong>BookShelf </strong> !</p>
+                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="{{ path('browse') }}"
+                                                                                              class="btn btn-primary px-4 py-3">Start Your Search</a></p>
                     </div>
                     <div class="one-half align-self-md-end align-self-sm-center">
                         <div class="slider-carousel owl-carousel">
@@ -49,7 +48,8 @@
                                 <input type="submit" class="search-domain btn btn-primary px-5" value="Recherche">
                             </div>
                         </form>
-                        <p class="domain-price text-center"><span><small>categorie 1 </small> nbr de livre dans ce categorie</span> <span><small>categorie 2</small> 195 </span> <span><small>categorie 3</small> 90 </span></p>
+                        {{ render(controller('AppBundle:Stats:popularBooks',{ 'limit': 3 })) }}
+                        {{ render(controller('AppBundle:Stats:popularCategories',{ 'limit': 3 })) }}
                     </div>
                 </div>
 

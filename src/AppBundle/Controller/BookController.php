@@ -121,16 +121,28 @@ class BookController extends Controller
 
     /**
      * @param $id
-     * @Route(name="sell_statut_toggle")
+     * @Route("/toggle/sell/{id}", name="sell_statut_toggle")
      */
-    public function userBookSellToggle(LibraryBook $libraryBook){
-
+    public function userBookSellToggle(LibraryBook $libraryBook , Request $request){
+        $em = $this->getDoctrine()->getManager();
+        if ($request->request->get('sellToggle')){
+            if ($libraryBook->getSell()){
+                $libraryBook->setSell(false);
+            }else{
+                $libraryBook->setSell(true);
+                $libraryBook->setPrice($request->request->get('price'));
+            }
+        }elseif ($request->request->get('update')){
+            $libraryBook->setPrice($request->request->get('price'));
+        }
+        $em->flush();
+        return $this->redirectToRoute('book_show', array('id' => $libraryBook->getBook()->getId()));
     }
     /**
      * @param $id
      * @Route("/toggle/exchange/{id}",name="exchange_statut_toggle")
      */
-    public function userBookExchangeToggle(LibraryBook $libraryBook){
+    public function userBookExchangeToggle(LibraryBook $id, LibraryBook $libraryBook){
         $em = $this->getDoctrine()->getManager();
         if ($libraryBook->getExchange()){
             $libraryBook->setExchange(false);

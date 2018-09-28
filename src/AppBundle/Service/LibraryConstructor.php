@@ -67,7 +67,7 @@ class LibraryConstructor
             $book = new Book();
 
             $book->setTitre($items[0]['volumeInfo']['title']  ?? null);
-            $book->setAnneePublication(\DateTime::createFromFormat('Ymd', str_pad(str_replace('-','',$items[0]['volumeInfo']['publishedDate']),8,'01')) );
+            $book->setAnneePublication(\DateTime::createFromFormat('Ymd', str_pad(str_replace('-','',$items[0]['volumeInfo']['publishedDate']),8,'01')) ?? null);
             $book->setLanguage($items[0]['volumeInfo']['language'] ?? null);
             $book->setPageCount($items[0]['volumeInfo']['pageCount'] ?? null);
             $book->setSearchInfo($items[0]['searchInfo']['textSnippet'] ?? null);

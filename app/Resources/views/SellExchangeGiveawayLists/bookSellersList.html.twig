@@ -10,7 +10,11 @@
 
         <div class="row ">
             {% for book in bookList %}
-                <div class="col-md-4 " style="font-size: 30px">{{ render(controller('AppBundle:Book:bookInLibraryOwner',{ 'id': book.id })) }}</div>
+                <div class="col-4">
+                    <div class="col-12 " style="font-size: 30px">{{ render(controller('AppBundle:Book:bookInLibraryOwner',{ 'id': book.id })) }}</div>
+                    <div class="btn btn-danger col-12">{{ book.price }} Dinars</div>
+                </div>
+
             {% endfor %}
         </div>
 

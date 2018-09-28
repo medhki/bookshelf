@@ -48,10 +48,12 @@
                             <li class="nav-item"><a href="" class="nav-link">Blog</a></li>
                             <li class="nav-item"><a href="" class="nav-link">Contact</a></li>
                             {% if app.user %}
-                                <li class="nav-item cta"><a href="{{ path('fos_user_security_logout') }}" class="nav-link"> <span>Deconnexion</span></a></li>
-                                <a href="{{ path('fos_user_profile_edit') }}" class="nav-link"><span>editer</span></a>
+                                <li class="nav-item cta"><a href="{{ path('fos_user_security_logout') }}" class="nav-link"> <span>Log Out</span></a></li>
+                                <li class="nav-item cta"><a href="{{ path('fos_user_profile_edit') }}" class="nav-link"><span>Edit</span></a></li>
+
                             {% else %}
-                                <li class="nav-item cta"><a href="{{ path('fos_user_security_login') }}" class="nav-link"><span>Se connecter</span></a></li>
+                                <li class="nav-item cta"><a href="{{ path('fos_user_security_login') }}" class="nav-link"><span>Log In</span></a></li>
+                                <li class="nav-item cta"><a href="{{ path('fos_user_registration_register') }}" class="nav-link"><span>Sign up</span></a></li>
                             {% endif %}
                         </ul>
                     </div>
@@ -59,6 +61,22 @@
             </nav>
             <!-- END nav -->
         {% endblock %}
+
+        <div class="container justify-content-center">
+            <div class="col-md-6">
+            {% for type, messages in app.session.flashBag.all %}
+                {% for message in messages %}
+                    {%if type == 'error'%} {% set type = 'danger' %} {%endif%}
+                    <div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{ message|raw }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            </div>
+        </div>
 
         {% block body %}
 
@@ -72,14 +90,14 @@
                             <div class="ftco-footer-widget mb-4">
                                 <h2 class="ftco-heading-2">BookShelf APP</h2>
                                 <p>
-                                    BookShelf est un projet creer par : <strong> Arbi Mazigh, Mohamed ..., Ala ... </strong> dans le cadre de projet fin de formation PHP et Symfony au cetre GoMyCode
+                                    BookShelf is a project edited by : <strong> Arbi Mazigh, Mohamed Hkiri, Ala Zaalouni </strong> as a final project for the GO MY CODE 1000 Coders formation
                                 </p>
                                 <p class="mt-4"><a href="#" class="btn btn-primary p-3">Get in touch</a></p>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="ftco-footer-widget mb-4 ml-md-5">
-                                <h2 class="ftco-heading-2">Liens Utiles</h2>
+                                <h2 class="ftco-heading-2">useful links</h2>
                                 <ul class="list-unstyled">
                                     <li><a href="#" class="py-2 d-block">Notre Blog</a></li>
                                     <li><a href="#" class="py-2 d-block">Equipe</a></li>
@@ -94,9 +112,9 @@
                             <div class="ftco-footer-widget mb-4">
                                 <h2 class="ftco-heading-2">Navigation</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="#" class="py-2 d-block">Mes livres</a></li>
-                                    <li><a href="#" class="py-2 d-block">Liste de livres</a></li>
-                                    <li><a href="#" class="py-2 d-block">Meilleur livres</a></li>
+                                    <li><a href="{{ path('user_library') }}" class="py-2 d-block">My Library</a></li>
+                                    <li><a href="{{ path('decouvrir') }}" class="py-2 d-block">Liste de livres</a></li>
+                                    <li><a href="{{ path('library_constructor') }}" class="py-2 d-block">Add a book</a></li>
                                     <li><a href="#" class="py-2 d-block">A propos</a></li>
                                     <li><a href="#" class="py-2 d-block">Notre Blog</a></li>
                                     <li><a href="#" class="py-2 d-block">Meilleur Articles</a></li>
@@ -110,7 +128,7 @@
                                         <li><span class="icon icon-map-marker"></span><span class="text">Les berges du lac 1, Tunis, Tunisie </span></li>
                                         <li><a href="#"><span class="icon icon-phone"></span><span class="text">71 000 000</span></a></li>
                                         <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@bookshelf.com</span></a></li>
-                                        <li><span class="icon icon-clock-o"></span><span class="text">Lundi &mdash; Vendredi <br>8:00am - 5:00pm</span></li>
+                                        <li><span class="icon icon-clock-o"></span><span class="text">Monday &mdash; Friday <br>8:00am - 5:00pm</span></li>
                                     </ul>
                                 </div>
                                 <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
@@ -124,7 +142,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
 
-                            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tous droits réservés | <i class="icon-heart" aria-hidden="true"> </i>THIS PROJECT IS MADE WITH <i class="icon-heart" aria-hidden="true"></i>
+                            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="icon-heart" aria-hidden="true"> </i>THIS PROJECT IS MADE WITH <i class="icon-heart" aria-hidden="true"></i>
                                </p>
                         </div>
                     </div>

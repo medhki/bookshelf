@@ -8,13 +8,13 @@
         <div class="row">
             {% if user == app.user %}
                 <div class="col-9">
-                    <h1> Ma Bibliotheque ({{ user.username }})</h1>
+                    <h1> My Library ({{ user.username }})</h1>
                 </div>
                 <div class="col-3">
                     <a class="btn btn-dark btn-block" href="{{ path('library_constructor') }}"> Add Another Book</a>
                 </div>
             {% else %}
-                <h1>  Bibliotheque de {{ user.username }}</h1>
+                <h1> {{ user.username }}'s Library  </h1>
             {% endif %}
         </div>
         <div class="row py-3" style="border: 0.5px solid grey; border-radius: 5px">
@@ -22,9 +22,10 @@
                 <img src="https://image.ibb.co/jw55Ex/def_face.jpg"  class="img img-rounded img-fluid"/>
             </div>
             <div class="px-2 col-md-9 flex-column">
-                <h3 class="font-weight-bold" style="line-height: normal">{{ user.username }}</h3>
-                <h5 class="font-weight-bold text-secondary"> born in 2100 </h5>
-                <h6> <small>Total of {{ userBooks | length }} books in this Library</small></h6>
+                <h1 class="font-weight-bold" style="line-height: normal">{{ user.username }}</h1>
+                <h3>call {{ user.phoneNumber }}</h3>
+                <h2> <small>Total of {{ userBooks | length }} books in this Library</small></h2>
+
             </div>
         </div>
         </div>
